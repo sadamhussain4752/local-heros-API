@@ -91,7 +91,7 @@ exports.getUserProducts = async (req, res) => {
     const { search } = req.query;
    
 
-    
+ 
 
     const query = {
       isActive: true,  // Include only active products

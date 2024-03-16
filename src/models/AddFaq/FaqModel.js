@@ -27,6 +27,7 @@ const FaqSchema = new mongoose.Schema({
   name: { type: String, required: true },
   description: String,
   imageUrl: String,
+  image_mob_Url: String,
   isActive: { type: Boolean, default: true },
   createdBy: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },

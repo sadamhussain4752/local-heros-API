@@ -6,6 +6,7 @@ const moment = require("moment");
 const axios = require("axios");
 
 const EventEmitter = require('events');
+const twilio = require("twilio");
 
 
 
@@ -19,12 +20,16 @@ const orderStatuses = [
   "Processing",
   "Shipped",
   "Delivered",
-  "Canceled",
+  "Cancelled",
   "Refunded",
   "On Hold",
   "Completed",
   "Failed",
   "Returned",
+  "Preparing",
+  "Order Placed",
+  "Confirmed",
+  "Out for Delivery",
 ];
 const eventEmitter = new EventEmitter();
 
@@ -33,6 +38,37 @@ const serverKey = 'AAAA2OuANNg:APA91bHhYI2KxWGRqm60dgGtrzbGYGAjKlTtU1K7_NEosNe8R
 
 // Define the FCM endpoint
 const fcmEndpoint = 'https://fcm.googleapis.com/fcm/send';
+
+const accountSid = "AC7293676e0655bebc9648970017499691";
+const authToken = "52e6568386ac5c40f4798eca237fbb89";
+const client = new twilio(accountSid, authToken);
+// Function to send SMS
+const sendSMS = async (to, body) => {
+  try {
+      await client.messages.create({
+          body: body,
+          from: "+12296007432", // Ensure the phone number is in E.164 format
+          to: to
+      });
+      console.log('SMS sent successfully!');
+  } catch (error) {
+      console.error('Error sending SMS:', error);
+  }
+};
+
+// Function to send WhatsApp message
+const sendWhatsApp = async (to, body) => {
+  try {
+      await client.messages.create({
+          body: body,
+          from: 'whatsapp:' + 14155238886,
+          to: 'whatsapp:' + to
+      });
+      console.log('WhatsApp message sent successfully!');
+  } catch (error) {
+      console.error('Error sending WhatsApp message:', error);
+  }
+};
 
 // Create a new order with payment
 exports.createOrder = async (req, res) => {
@@ -47,6 +83,7 @@ exports.createOrder = async (req, res) => {
       paymentStatus,
       exta_add_item,
       exta_message,
+      applycoupon
     } = req.body;
 
     // Create a new order
@@ -60,6 +97,7 @@ exports.createOrder = async (req, res) => {
       exta_add_item,
       exta_message,
       razorpay_payment_id,
+      applycoupon
     });
 
     const newOrde = await Product.findById(productIds[0]);
@@ -106,6 +144,9 @@ async function processPayment(userId, totalAmount) {
     }, 1000);
   });
 }
+
+
+
 
 
 // Admin notification logic
@@ -231,6 +272,13 @@ exports.updateOrderById = async (req, res) => {
     // Update the Order fields]
     if (status) {
       existingOrder.paymentStatus = status; // Assuming 'status' is the field you want to update
+      const messageBody = `Order has been Done: ${orderId.substring(0, 6)}`;
+
+      // Send SMS
+     await sendSMS("+919629283625", messageBody);
+  
+      // Send WhatsApp message
+      await sendWhatsApp("919629283625", messageBody);
     }
     if (delivery) {
       existingOrder.delivery = delivery; // Assuming 'status' is the field you want to update

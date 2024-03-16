@@ -138,6 +138,8 @@ exports.getBannerslist = async (req, res) => {
         .status(400)
         .json({ success: false, error: "Invalid 'lang' parameter" });
     }
+
+    
     const banners = await BannerCard.find({ lang: LANGID[lang] });
     res.status(200).json({ success: true, banners });
   } catch (error) {

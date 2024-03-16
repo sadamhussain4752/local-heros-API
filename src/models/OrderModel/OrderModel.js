@@ -36,6 +36,7 @@ const OrderSchema = new mongoose.Schema({
   razorpay_payment_id: { type: String, required: true },
   exta_message: { type: String },
   exta_add_item: { type: String },
+  applycoupon: { type: String }
 });
 
 const Order = mongoose.model("Order", OrderSchema);
