@@ -40,7 +40,7 @@ const serverKey = 'AAAA2OuANNg:APA91bHhYI2KxWGRqm60dgGtrzbGYGAjKlTtU1K7_NEosNe8R
 const fcmEndpoint = 'https://fcm.googleapis.com/fcm/send';
 
 const accountSid = "AC7293676e0655bebc9648970017499691";
-const authToken = "52e6568386ac5c40f4798eca237fbb89";
+const authToken = "4212c70cf0532c43e0aba25c99bdd406";
 const client = new twilio(accountSid, authToken);
 // Function to send SMS
 const sendSMS = async (to, body) => {
