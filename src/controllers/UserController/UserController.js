@@ -80,7 +80,7 @@ const updateAdmin = async (adminId, updateData) => {
 // Function to send a verification SMS using Twilio
 async function sendVerificationSMS(phoneNumber) {
   const accountSid = "AC7293676e0655bebc9648970017499691";
-  const authToken = "4212c70cf0532c43e0aba25c99bdd406";
+  const authToken = "fca7569062b1ad9069c81c1714e98383";
   const client = new twilio(accountSid, authToken);
 
   const verificationCode = generateVerificationCode(); // Implement your own function to generate a verification code
@@ -111,7 +111,7 @@ function generateVerificationCode() {
 
 module.exports = {
   login: async (req, res) => {
-    const { email, password, mobilenumber } = req.body;
+    const { email, password, mobilenumber,google_signin } = req.body;
 
     try {
       // Find user by username
@@ -124,54 +124,69 @@ module.exports = {
         }
       }
 
-      const user = await User.findOne(
-        mobilenumber ? { mobilenumber } : { email }
-      );
-
-      // Check if user exists
-      if (!user) {
-        return res
-          .status(401)
-          .json({ success: false, message: "Invalid credentials" });
-      }
-      // Check if user exists
-      if (!user.verified || !user.OTPNumber || user.UserType === "3") {
-        // Send verification code via Twilio SMS
-        let updateOTP = await sendVerificationSMS(`+91${user.mobilenumber}`); // Assuming phoneNumber is a property of your User model
-        // Save the reset token and its expiration time in the user document
-        user.OTPNumber = updateOTP;
-        await user.save();
-        return res.status(401).json({
-          success: false,
-          message: "Verification SMS sent successfully",
+      let user;
+      if (google_signin) {
+        user = await User.findOne(
+          mobilenumber ? { mobilenumber } : { email }
+        );
+        res
+        .status(200)
+        .json({
+          success: true,
+          userId: user._id,
+          UserType: user.UserType,
         });
-      }
-
-      // Check password
-      if (!mobilenumber) {
-        const isPasswordValid = await bcrypt.compare(password, user.password);
-        if (!isPasswordValid) {
+      } else {
+        user = await User.findOne(
+          mobilenumber ? { mobilenumber } : { email }
+        );
+  
+        // Check if user exists
+        if (!user) {
           return res
             .status(401)
             .json({ success: false, message: "Invalid credentials" });
         }
+        // Check if user exists
+        if (!user.verified || !user.OTPNumber || user.UserType === "3") {
+          // Send verification code via Twilio SMS
+          let updateOTP = await sendVerificationSMS(`+91${user.mobilenumber}`); // Assuming phoneNumber is a property of your User model
+          // Save the reset token and its expiration time in the user document
+          user.OTPNumber = updateOTP;
+          await user.save();
+          return res.status(401).json({
+            success: false,
+            message: "Verification SMS sent successfully",
+          });
+        }
+  
+        // Check password
+        if (!mobilenumber) {
+          const isPasswordValid = await bcrypt.compare(password, user.password);
+          if (!isPasswordValid) {
+            return res
+              .status(401)
+              .json({ success: false, message: "Invalid credentials" });
+          }
+        }
+  
+        // Generate JWT token
+        const token = jwt.sign(
+          { email: user.email, userId: user._id, UserType: user.UserType },
+          "your-secret-key",
+          { expiresIn: "1h" }
+        );
+  
+        res
+          .status(200)
+          .json({
+            success: true,
+            token,
+            userId: user._id,
+            UserType: user.UserType,
+          });
       }
-
-      // Generate JWT token
-      const token = jwt.sign(
-        { email: user.email, userId: user._id, UserType: user.UserType },
-        "your-secret-key",
-        { expiresIn: "1h" }
-      );
-
-      res
-        .status(200)
-        .json({
-          success: true,
-          token,
-          userId: user._id,
-          UserType: user.UserType,
-        });
+      
     } catch (error) {
       console.error(error);
       res.status(500).json({ success: false, error: "Server error" });
