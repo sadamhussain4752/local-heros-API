@@ -80,7 +80,7 @@ const updateAdmin = async (adminId, updateData) => {
 // Function to send a verification SMS using Twilio
 async function sendVerificationSMS(phoneNumber) {
   const accountSid = "AC7293676e0655bebc9648970017499691";
-  const authToken = "fca7569062b1ad9069c81c1714e98383";
+  const authToken = "05b23d7897fc3b4175a7dce9b6f6a77b";
   const client = new twilio(accountSid, authToken);
 
   const verificationCode = generateVerificationCode(); // Implement your own function to generate a verification code
@@ -148,7 +148,7 @@ module.exports = {
             .json({ success: false, message: "Invalid credentials" });
         }
         // Check if user exists
-        if (!user.verified || !user.OTPNumber || user.UserType === "3") {
+        if (mobilenumber && !user.verified || !user.OTPNumber || user.UserType === "3") {
           // Send verification code via Twilio SMS
           let updateOTP = await sendVerificationSMS(`+91${user.mobilenumber}`); // Assuming phoneNumber is a property of your User model
           // Save the reset token and its expiration time in the user document
