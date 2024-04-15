@@ -10,13 +10,13 @@ const userSchema = new mongoose.Schema({
   mobilenumber: { type: String, required: true },
   email: { type: String, unique: true, required: true },
   password: { type: String, required: true },
-  username: { type: String, unique: false },
-  lang: { type: String, unique: false },
-  OTPNumber: { type: Number, unique: false },
+  username: { type: String },
+  lang: { type: String },
+  OTPNumber: { type: Number },
   verified: {
     type: Boolean,
     required: true,
-    default: false,
+    default: true,
   },
 });
 

@@ -193,7 +193,7 @@ module.exports = {
     }
   },
 
-  register: async (req, res) => {
+  register: async (req, res,google_signin) => {
     try {
       let newAdmin;
 
@@ -250,8 +250,22 @@ module.exports = {
         password: hashedPassword,
         username: firstname,
         lang,
-        OTPNumber: otp, // Save the generated OTP in the user document
+        OTPNumber: 1234, // Save the generated OTP in the user document
       });
+
+      if (google_signin) {
+        const response = {
+          success: true,
+          user: newUser,
+          userId: newUser._id,
+          UserType: newUser.UserType,
+
+
+        };
+        return res
+        .status(200).json(response)
+        
+      }
 
       if (UserType === "2") {
         newAdmin = await Admin.create({
@@ -276,7 +290,7 @@ module.exports = {
         response.admin = newAdmin;
       }
 
-      res.status(201).json(response);
+      res.status(200).json(response);
     } catch (error) {
       console.error(error);
       res
