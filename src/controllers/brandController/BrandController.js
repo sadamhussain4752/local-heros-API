@@ -20,7 +20,7 @@ exports.createBrand = async (req, res) => {
       lang,
     });
 
-    res.status(201).json({ success: true, brand: newBrand });
+    res.status(200).json({ success: true, brand: newBrand });
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, error: "Server error" });

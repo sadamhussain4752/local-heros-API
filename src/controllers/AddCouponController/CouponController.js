@@ -57,7 +57,7 @@ exports.createCoupon = async (req, res) => {
       lang,
       coupon_type
     });
-    res.status(201).json({ success: true, coupon: newCoupon });
+    res.status(200).json({ success: true, coupon: newCoupon });
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, error: "Server error" });

@@ -31,7 +31,7 @@ exports.createCartItem = async (req, res) => {
         productId,
         quantity: parsedQuantity,
       });
-      res.status(201).json({ success: true, cartItem: newCartItem });
+      res.status(200).json({ success: true, cartItem: newCartItem });
     } else {
       // Handle the case where quantity is not a valid number
       res.status(400).json({ success: false, error: 'Invalid quantity' });

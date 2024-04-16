@@ -56,7 +56,7 @@ exports.createProduct = async (req, res) => {
           exta_add_item
       });
 
-      res.status(201).json({ success: true, product: newProduct });
+      res.status(200).json({ success: true, product: newProduct });
   } catch (error) {
       console.error(error);
       res.status(500).json({ success: false, error: "Server error" });

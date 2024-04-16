@@ -479,7 +479,7 @@ exports.createOrderWithRazorpay = async (req, res) => {
     // Update your order in the database with the Razorpay order ID
 
     // Send the Razorpay order ID in the response
-    res.status(201).json({ success: true, razorpayOrderId });
+    res.status(200).json({ success: true, razorpayOrderId });
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, error: "Server error" });

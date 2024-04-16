@@ -18,7 +18,7 @@ exports.createAddress = async (req, res) => {
       typeAddress,
     });
 
-    res.status(201).json({ success: true, address: newAddress });
+    res.status(200).json({ success: true, address: newAddress });
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, error: 'Server error' });

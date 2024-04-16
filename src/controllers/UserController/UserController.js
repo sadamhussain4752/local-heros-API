@@ -583,7 +583,7 @@ module.exports = {
           response.admin = updatedAdmin;
         }
 
-        res.status(201).json(response);
+        res.status(200).json(response);
       } else {
         const updatedUser = await updateUser(adminId, updateData);
         res.status(200).json({ success: true, user: updatedUser });
@@ -627,7 +627,7 @@ module.exports = {
           response.admin = updatedAdmin;
         }
 
-        res.status(201).json(response);
+        res.status(200).json(response);
       } else {
         const updatedUser = await updateUser(UserId, updateData);
         res.status(200).json({ success: true, user: updatedUser });
