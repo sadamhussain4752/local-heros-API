@@ -81,6 +81,9 @@ exports.updateCartItem = async (req, res) => {
       { quantity, savelater },
       { new: true }
     );
+    if(quantity === "0"){
+      await AddCart.deleteOne({ _id: cartItemId });
+    }
 
     if (!existingCartItem) {
       return res
