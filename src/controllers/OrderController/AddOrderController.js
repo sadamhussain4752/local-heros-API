@@ -83,7 +83,8 @@ exports.createOrder = async (req, res) => {
       paymentStatus,
       exta_add_item,
       exta_message,
-      applycoupon
+      applycoupon,
+      quantity
     } = req.body;
 
     // Create a new order
@@ -97,7 +98,8 @@ exports.createOrder = async (req, res) => {
       exta_add_item,
       exta_message,
       razorpay_payment_id,
-      applycoupon
+      applycoupon,
+      quantity
     });
 
     const newOrde = await Product.findById(productIds[0]);

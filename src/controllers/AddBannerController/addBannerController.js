@@ -120,6 +120,14 @@ exports.getAllBanners = async (req, res) => {
     const Faqs = await Faq.find();
 
     const Categorys = await Category.find({ lang: LANGID[lang] });
+    Categorys.sort((a, b) => {
+      // Convert the order_by field from string to number
+      const orderA = parseFloat(a.order_by);
+      const orderB = parseFloat(b.order_by);
+    
+      // Compare the numeric values
+      return orderA - orderB;
+    });   
     
 
     res.status(200).json({ success: true, banners, Faqs, Categorys });

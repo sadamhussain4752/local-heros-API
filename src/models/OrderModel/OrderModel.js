@@ -36,7 +36,13 @@ const OrderSchema = new mongoose.Schema({
   razorpay_payment_id: { type: String, required: true },
   exta_message: { type: String },
   exta_add_item: { type: String },
-  applycoupon: { type: String }
+  applycoupon: { type: String },
+  quantity: [
+    {
+      productId: { type: mongoose.Schema.Types.ObjectId, ref: "Product", required: true },
+      quantity: { type: String, required: true },
+    },
+  ],
 });
 
 const Order = mongoose.model("Order", OrderSchema);

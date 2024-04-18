@@ -13,7 +13,7 @@ exports.createBrand = async (req, res) => {
     const newBrand = await Brand.create({
       name,
       description,
-      imageUrl: imagePaths[0],
+      imageUrl: req.fileUrls[0],
       isActive,
       createdBy,
       category_id,
@@ -81,7 +81,7 @@ exports.updateBrandById = async (req, res) => {
     // Update the brand fields
     existingBrand.name = name;
     existingBrand.description = description;
-    existingBrand.imageUrl = imagePaths[0];;
+    existingBrand.imageUrl = req.fileUrls[0];
     existingBrand.createdBy = createdBy;
     existingBrand.lang = lang;
 
