@@ -7,6 +7,7 @@ const AddCartSchema = new mongoose.Schema({
     addedAt: { type: Date, default: Date.now },
     isActive: { type: Boolean, default: true },
     savelater: { type: Boolean, default: true },
+    Options_item: { type: String }
     // Add any other relevant fields you may need
 });
 

@@ -91,8 +91,6 @@ exports.getUserProducts = async (req, res) => {
     const { search } = req.query;
    
 
- 
-
     const query = {
       isActive: true,  // Include only active products
       $or: [
@@ -100,10 +98,6 @@ exports.getUserProducts = async (req, res) => {
         { description: { $regex: new RegExp(search, 'i') } },  // Case-insensitive search for description
       ],
     };
-
-    
-   
-
     const userProducts = await Product.find(query);
 
     res.status(200).json({ success: true, userProducts });
@@ -173,7 +167,7 @@ exports.updateProductById = async (req, res) => {
       existingProduct.description = description;
       existingProduct.amount = amount;
       existingProduct.offeramount = offeramount;
-      existingProduct.images = req.fileUrls[0];
+      // existingProduct.images = req.fileUrls[0];
       existingProduct.color = color;
       existingProduct.weight = weight;
       existingProduct.dimensions = dimensions;

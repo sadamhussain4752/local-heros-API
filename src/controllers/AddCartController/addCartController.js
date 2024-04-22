@@ -12,7 +12,7 @@ const LANGID = {
 // Create a new item in the cart
 exports.createCartItem = async (req, res) => {
   try {
-    const { userId, productId, quantity } = req.body;
+    const { userId, productId, quantity ,Options_item } = req.body;
     const existingCartItem = await AddCart.findOne({ userId, productId });
 
 
@@ -30,6 +30,7 @@ exports.createCartItem = async (req, res) => {
         userId,
         productId,
         quantity: parsedQuantity,
+        Options_item
       });
       res.status(200).json({ success: true, cartItem: newCartItem });
     } else {
@@ -52,9 +53,17 @@ exports.getAddcart = async (req, res) => {
 
     // Create an array to store promises for fetching product details
     const productPromises = AddCarts.map(async (item) => {
+      let Options_id = "";
+
       // Fetch product details for each add cart item
       const product = await Product.findById(item.productId);
-      return { ...item._doc, product }; // Combine add cart item and product details
+
+      // Fetch options item details if it exists
+      if (item.Options_item) {
+        Options_id = await Product.findById(item.Options_item);
+      }
+
+      return { ...item._doc, product, Options_id }; // Combine add cart item, product, and options item details
     });
 
     // Wait for all promises to resolve
@@ -66,6 +75,7 @@ exports.getAddcart = async (req, res) => {
     res.status(500).json({ success: false, error: "Server error" });
   }
 };
+
 
 
 

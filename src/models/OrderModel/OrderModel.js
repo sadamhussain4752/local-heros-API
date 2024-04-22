@@ -41,6 +41,7 @@ const OrderSchema = new mongoose.Schema({
     {
       productId: { type: mongoose.Schema.Types.ObjectId, ref: "Product", required: true },
       quantity: { type: String, required: true },
+      Options_product_Id : { type: String }
     },
   ],
 });

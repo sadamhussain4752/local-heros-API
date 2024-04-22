@@ -180,9 +180,14 @@ exports.getAllOrder = async (req, res) => {
       const user = await User.findById(order.userId);
 
       // Fetch product details for each order item
-      const productPromises = order.productIds.map(async (productId) => {
-        const product = await Product.findById(productId);
-        return product;
+      const productPromises = order?.quantity.map(async (prod) => {
+        let Options_product = "";
+        if (prod.Options_product_Id !== "") {
+          Options_product = await Product.findById(prod.Options_product_Id);
+        }
+        const product = await Product.findById(prod.productId);
+        return Options_product !== "" ? product : {Options_product, product};
+        
       });
 
       // Wait for all promises to resolve

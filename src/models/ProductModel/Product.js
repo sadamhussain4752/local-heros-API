@@ -20,6 +20,7 @@ const ProductSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
   lang: { type: String },
   exta_add_item: { type: String, required: true },
+  options:  {type: Boolean, default: false }
 });
 
 const Product = mongoose.model('Product', ProductSchema);
