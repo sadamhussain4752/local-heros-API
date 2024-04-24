@@ -110,7 +110,7 @@ function generateVerificationCode() {
 
 module.exports = {
   login: async (req, res) => {
-    const { email, password, mobilenumber,google_signin } = req.body;
+    const { email, password, mobilenumber,google_signin,fcm_token } = req.body;
 
     try {
       // Find user by username
@@ -158,6 +158,12 @@ module.exports = {
             success: false,
             message: "Verification SMS sent successfully",
           });
+        }
+
+        if(user.UserType === "1" && fcm_token){
+          user.fcm_token = fcm_token;
+          // Save the updated Product
+          const updateduser = await user.save();
         }
   
         // Check password

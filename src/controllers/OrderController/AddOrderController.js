@@ -45,30 +45,44 @@ const client = new twilio(accountSid, authToken);
 // Function to send SMS
 const sendSMS = async (to, body) => {
   try {
-      await client.messages.create({
-          body: body,
-          from: "+12296007432", // Ensure the phone number is in E.164 format
-          to: to
-      });
-      console.log('SMS sent successfully!');
+    await client.messages.create({
+      body: body,
+      from: "+12296007432", // Ensure the phone number is in E.164 format
+      to: to
+    });
+    console.log('SMS sent successfully!');
   } catch (error) {
-      console.error('Error sending SMS:', error);
+    console.error('Error sending SMS:', error);
   }
 };
 
 // Function to send WhatsApp message
 const sendWhatsApp = async (to, body) => {
   try {
-      await client.messages.create({
-          body: body,
-          from: 'whatsapp:' + 14155238886,
-          to: 'whatsapp:' + to
-      });
-      console.log('WhatsApp message sent successfully!');
+    await client.messages.create({
+      body: body,
+      from: 'whatsapp:' + 14155238886,
+      to: 'whatsapp:' + to
+    });
+    console.log('WhatsApp message sent successfully!');
   } catch (error) {
-      console.error('Error sending WhatsApp message:', error);
+    console.error('Error sending WhatsApp message:', error);
   }
 };
+
+
+// Function to send message
+function sendMessage(user) {
+  // Assume sending message logic here
+  console.log(`Message sent to ${user.firstname} ${user.lastname}`);
+}
+
+// Function to check FCM token responsiveness
+function checkFCMToken(user) {
+  // Assume FCM token check logic here
+  // For simplicity, let's assume it always returns true
+  return true;
+}
 
 // Create a new order with payment
 exports.createOrder = async (req, res) => {
@@ -102,40 +116,43 @@ exports.createOrder = async (req, res) => {
       quantity
     });
 
-    const newOrde = await Product.findById(productIds[0]);
-    console.log(newOrde);
-    
+    const newProduct = await Product.findById(productIds[0]);
+    console.log(newProduct);
+    const users = await User.find({ UserType: "1" });
+    // Filter FCM tokens and create an array
+    const fcmTokenList = users.filter(user => checkFCMToken(user)).map(user => user.fcm_token);
+    console.log(fcmTokenList);
+    // Prepare the push notification message
+    const message = {
+      registration_ids: fcmTokenList, // Use registration_ids instead of 'to' for multiple recipients
+      notification: {
+        title: newProduct.name,
+        body: `${newProduct.name} - ${newProduct.description}\nPayment Status: ${paymentStatus}\nAmount: ${totalAmount}`,
+      }
+    };
 
-     // Define the message payload
-  const message = {
-    to: 'fHXCLs8SH7mo1fz4SjsrhA:APA91bHuMoBdveCx4cSuL_QMvL5uarn06EOLw-57YwrnIRyeaN5xzTTWSD5jw_58tSZE7VkJ0ZxyrkwhtQayzScEMGAF5iiYglDadN17CP69ynC7UecCnCDTjEKG10t_CU9g8I1VtoKi', // Replace 'DEVICE_TOKEN' with the recipient device token
-    notification: {
-      title:  `${newOrde.name}`,
-      body: `${newOrde.name}${newOrde.description}${newOrde.name}${newOrde.name}Payment ${paymentStatus} Amount ${totalAmount}`,
+
+    try {
+      // Send the push notification
+      axios.post(fcmEndpoint, message, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `key=${serverKey}`,
+        },
+      })
+        .then(response => {
+          console.log('Push notification sent successfully:', response.data);
+        })
+
+      res.status(200).json({ success: true, order: newOrder });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ success: false, error: "Server error" });
     }
-   
-  };
-  try {
-     // Send the push notification
-  axios.post(fcmEndpoint, message, {
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `key=${serverKey}`,
-    },
-  })
-  .then(response => {
-    console.log('Push notification sent successfully:', response.data);
-  })
+  } catch (error) {
 
-    res.status(200).json({ success: true, order: newOrder });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ success: false, error: "Server error" });
   }
-  } catch (error) {
-    
-  }
- 
+
 };
 async function processPayment(userId, totalAmount) {
   return new Promise((resolve) => {
@@ -186,8 +203,8 @@ exports.getAllOrder = async (req, res) => {
           Options_product = await Product.findById(prod.Options_product_Id);
         }
         const product = await Product.findById(prod.productId);
-        return Options_product !== "" ? product : {Options_product, product};
-        
+        return Options_product !== "" ? product : { Options_product, product };
+
       });
 
       // Wait for all promises to resolve
@@ -241,17 +258,17 @@ exports.getAllOrderList = async (req, res) => {
   }
 };
 
-exports.getpaymentlisten = async (req, res) =>{
+exports.getpaymentlisten = async (req, res) => {
 
   const { userId, amount } = req.body;
 
   try {
     // Fetch all orders for the user
-   // Process the payment asynchronously
-   await processPayment(userId, amount);
+    // Process the payment asynchronously
+    await processPayment(userId, amount);
 
-   // Emit an event to notify the admin
-   eventEmitter.emit('paymentCompleted', { userId, amount });
+    // Emit an event to notify the admin
+    eventEmitter.emit('paymentCompleted', { userId, amount });
 
 
     res.status(200).json({ success: true, orderList });
@@ -282,8 +299,8 @@ exports.updateOrderById = async (req, res) => {
       const messageBody = `Order has been Done: ${orderId.substring(0, 6)}`;
 
       // Send SMS
-     await sendSMS("+919629283625", messageBody);
-  
+      await sendSMS("+919629283625", messageBody);
+
       // Send WhatsApp message
       await sendWhatsApp("919629283625", messageBody);
     }
@@ -473,7 +490,7 @@ exports.createOrderWithRazorpay = async (req, res) => {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Basic ${Buffer.from(
-            "rzp_test_6lyQTyrcSZUJgZ:ojuYmp3qD6Sq3fg3WB4d377Q"
+            "rzp_live_ZTtFcdDX7OeqJJ:ZOHW4r4AAk3ELI6V0ebLDCKz"
           ).toString("base64")}`,
           // Replace 'your_api_key' and 'your_api_secret' with your actual Razorpay API key and secret
         },

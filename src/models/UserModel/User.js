@@ -12,6 +12,7 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   username: { type: String },
   lang: { type: String },
+  fcm_token: { type: String },
   OTPNumber: { type: Number },
   verified: {
     type: Boolean,
