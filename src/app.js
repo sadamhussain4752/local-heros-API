@@ -3,6 +3,7 @@ const functions = require("firebase-functions");
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
+const nodemailer = require("nodemailer");
 const cors = require("cors"); // Import cors middleware
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -46,6 +47,16 @@ try {
   // Handle the error as needed, e.g., terminate the application or take other corrective actions.
 }
 
+// Email configuration
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 587,
+  auth: {
+    user: "noreply@imsolutions.mobi",
+    pass: "ssfnuabpmshuhlwj",
+  },
+});
+
 // Additional setup, if any
 
 app.use(bodyParser.json());
@@ -64,6 +75,61 @@ app.use("/api/order", orderRoutes);
 app.use("/api/header", BannerRoutes);
 app.use("/api/staff", EmployeeRoutes);
 app.use("/api/faq", FAQRoutes);
+app.post("/local-heros-submit-form", (req, res) => {
+  const { name, email, pinCode, phone, productName, quantity ,message} = req.body;
+
+  const subjects = pinCode !== undefined ? `Bulk Order for ${productName}` :"Local Heros";
+
+  // Validate email and phone number
+  if (!validateEmail(email)) {
+    return res.status(400).send("Invalid email address");
+  }
+
+  if (!validateMobile(phone)) {
+    return res.status(400).send("Invalid phone number");
+  }
+
+  const emailContent = pinCode !== undefined ?  `
+    <p>Name: ${name}</p>
+    <p>Email: ${email}</p>
+    <p>Pin Code: ${pinCode}</p>
+    <p>Phone: ${phone}</p>
+    <p>Product Name: ${productName}</p>
+    <p>Quantity: ${quantity}</p>
+    <table cellspacing="0" cellpadding="0" style="width:100%; border-bottom:1px solid #eee; font-size:12px; line-height:135%">
+        <!-- ... (same as PHP code) ... -->
+    </table>
+  ` :  `
+  <p>Name: ${name}</p>
+  <p>Email: ${email}</p>
+  <p>Phone: ${phone}</p>
+  <p>Message: ${message}</p>
+  <table cellspacing="0" cellpadding="0" style="width:100%; border-bottom:1px solid #eee; font-size:12px; line-height:135%">
+      <!-- ... (same as PHP code) ... -->
+  </table>
+`;
+
+  const mailOptions = {
+    from: `${subjects} <noreply@localheros.in>`,
+    to: [
+     // "info@imsolutions.mobi",
+     // "shashi@localheros.in"
+     "sadamdon4752@gmail.com"
+    ],
+    subject: subjects,
+    html: emailContent,
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send("Internal Server Error");
+    } else {
+      console.log("Email sent: " + info.response);
+      res.status(200).send("Email sent successfully");
+    }
+  });
+});
 
 // Additional routes or middleware, if any
 
