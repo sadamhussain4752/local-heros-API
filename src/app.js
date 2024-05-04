@@ -59,6 +59,20 @@ const transporter = nodemailer.createTransport({
 
 // Additional setup, if any
 
+// Function to validate email
+function validateEmail(email) {
+  // Using a more comprehensive regular expression for email validation
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
+
+// Function to validate mobile number
+function validateMobile(phone) {
+  // Assuming phone number should contain only digits and be of a certain length
+  const regex = /^\d{10}$/;
+  return regex.test(phone);
+}
+
 app.use(bodyParser.json());
 
 // Use routes
