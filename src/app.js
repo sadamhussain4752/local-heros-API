@@ -126,9 +126,9 @@ app.post("/local-heros-submit-form", (req, res) => {
   const mailOptions = {
     from: `${subjects} <noreply@localheros.in>`,
     to: [
-     // "info@imsolutions.mobi",
-     // "shashi@localheros.in"
-     "sadamdon4752@gmail.com"
+      "info@imsolutions.mobi",
+      "shashi@localheros.in"
+     //"sadamdon4752@gmail.com"
     ],
     subject: subjects,
     html: emailContent,
