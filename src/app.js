@@ -153,6 +153,7 @@ app.post("/local-heros-submit-form", (req, res) => {
       Destination: {
         ToAddresses: [
           //"info@imsolutions.mobi",
+          "ops@localheros.in",
           "shashi@localheros.in",
           //"sadamdon4752@gmail.com"
           //"sadam@imsolutions.mobi"
