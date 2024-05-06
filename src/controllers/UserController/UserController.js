@@ -7,6 +7,7 @@ const Admin = require("../../models/UserModel/Admin");
 const transporter = require("../../utils/emailConfig");
 const { v4: uuidv4 } = require("uuid");
 const twilio = require("twilio");
+const axios = require('axios');
 
 const RESPONSE_MESSAGES = {
   EMAIL_TAKEN: "Email is already taken",
@@ -77,29 +78,33 @@ const updateAdmin = async (adminId, updateData) => {
   }
 };
 
-// Function to send a verification SMS using Twilio
 async function sendVerificationSMS(phoneNumber) {
-  const accountSid = "AC7293676e0655bebc9648970017499691";
-  const authToken = "05b23d7897fc3b4175a7dce9b6f6a77b";
-  const client = new twilio(accountSid, authToken);
-
+  const apiKey = "07a81cfd6463953ac8e5f3a9d43c1985";
+  const sender = "LHEROS";
+  const templateId = "1607100000000307605";
   const verificationCode = generateVerificationCode(); // Implement your own function to generate a verification code
 
+  const smsData = {
+    key: apiKey,
+    route: 2,
+    sender: sender,
+    number: phoneNumber,
+    sms: `One time verification code for buy back is : ${verificationCode} -LOCAL HEROS`,
+    templateid: templateId
+  };
+
   try {
-    // console.log({
-    //   body: `Your verification code: ${verificationCode}`,
-    //   from: "+12296007432",  // Ensure the phone number is in E.164 format
-    //   to: phoneNumber,
-    // })
-    await client.messages.create({
-      body: `Your verification code: ${verificationCode}`,
-      from: "+12296007432", // Ensure the phone number is in E.164 format
-      to: phoneNumber,
+    const response = await axios.get('http://site.ping4sms.com/api/smsapi', {
+      params: smsData
     });
 
+    // Assuming the response provides some confirmation of successful SMS delivery,
+    // you can handle it here based on the structure of the response.
+    console.log("SMS Sent Successfully:", response.data);
+
     return verificationCode;
-  } catch (err) {
-    console.error("Error sending verification SMS:", err);
+  } catch (error) {
+    console.error("Error sending verification SMS:", error);
   }
 }
 
@@ -150,7 +155,7 @@ module.exports = {
         // Check if user exists
         if (!user.verified || user.OTPNumber || user.UserType === "3") {
           // Send verification code via Twilio SMS
-          let updateOTP = await sendVerificationSMS(`+91${user.mobilenumber}`); // Assuming phoneNumber is a property of your User model
+          let updateOTP = await sendVerificationSMS(`${user.mobilenumber}`); // Assuming phoneNumber is a property of your User model
           // Save the reset token and its expiration time in the user document
           user.OTPNumber = updateOTP;
           await user.save();
@@ -394,7 +399,7 @@ module.exports = {
       }
 
       // Send verification code via Twilio SMS
-      const updateOTP = await sendVerificationSMS(`+91${user.mobilenumber}`);
+      const updateOTP = await sendVerificationSMS(`${user.mobilenumber}`);
       // Save the OTP in the user document
       user.OTPNumber = updateOTP;
       await user.save();

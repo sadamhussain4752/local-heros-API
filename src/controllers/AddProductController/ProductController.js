@@ -167,7 +167,7 @@ exports.updateProductById = async (req, res) => {
       existingProduct.description = description;
       existingProduct.amount = amount;
       existingProduct.offeramount = offeramount;
-      // existingProduct.images = req.fileUrls[0];
+      existingProduct.images = req.fileUrls[0];
       existingProduct.color = color;
       existingProduct.weight = weight;
       existingProduct.dimensions = dimensions;

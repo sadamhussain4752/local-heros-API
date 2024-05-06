@@ -43,19 +43,33 @@ const accountSid = "AC7293676e0655bebc9648970017499691";
 const authToken = "fca7569062b1ad9069c81c1714e98383";
 const client = new twilio(accountSid, authToken);
 // Function to send SMS
-const sendSMS = async (to, body) => {
-  try {
-    await client.messages.create({
-      body: body,
-      from: "+12296007432", // Ensure the phone number is in E.164 format
-      to: to
-    });
-    console.log('SMS sent successfully!');
-  } catch (error) {
-    console.error('Error sending SMS:', error);
-  }
-};
+async function sendVerificationSMS(phoneNumber,msg) {
+  const apiKey = "07a81cfd6463953ac8e5f3a9d43c1985";
+  const sender = "LHEROS";
+  const templateId = "1607100000000307112";
 
+  const smsData = {
+    key: apiKey,
+    route: 2,
+    sender: sender,
+    number: phoneNumber,
+    sms: `Congratulations! Your order is confirmed. Estimated Delivery Time: ${msg} Thank you for choosing Swiggy! -LOCAL HEROS`,
+    templateid: templateId
+  };
+
+  try {
+    const response = await axios.get('http://site.ping4sms.com/api/smsapi', {
+      params: smsData
+    });
+
+    // Assuming the response provides some confirmation of successful SMS delivery,
+    // you can handle it here based on the structure of the response.
+    console.log("SMS Sent Successfully:", response.data);
+
+  } catch (error) {
+    console.error("Error sending verification SMS:", error);
+  }
+}
 // Function to send WhatsApp message
 const sendWhatsApp = async (to, body) => {
   try {
@@ -299,10 +313,10 @@ exports.updateOrderById = async (req, res) => {
       const messageBody = `Order has been Done: ${orderId.substring(0, 6)}`;
 
       // Send SMS
-      await sendSMS("+919629283625", messageBody);
+      await sendVerificationSMS("9629283625", orderId);
 
       // Send WhatsApp message
-      await sendWhatsApp("919629283625", messageBody);
+      // await sendWhatsApp("919629283625", messageBody);
     }
     if (delivery) {
       existingOrder.delivery = delivery; // Assuming 'status' is the field you want to update
