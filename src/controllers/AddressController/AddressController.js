@@ -3,7 +3,7 @@ const Address = require('../../models/Address/AddressModel');
 // Create a new address
 exports.createAddress = async (req, res) => {
   try {
-    const { userId, fullName, phone, companyName, street, city, state, pinCode, email, typeAddress } = req.body;
+    const { userId, fullName, phone, companyName, street, city, state, pinCode, email, typeAddress,lat,lng } = req.body;
 
     const newAddress = await Address.create({
       userId,
@@ -16,6 +16,8 @@ exports.createAddress = async (req, res) => {
       pinCode,
       email,
       typeAddress,
+      lat,
+      lng
     });
 
     res.status(200).json({ success: true, address: newAddress });
@@ -30,6 +32,7 @@ exports.getAllAddress = async (req, res) => {
     try {
       const Addresslist = await Address.find();
       res.status(200).json({ success: true, Addresslist });
+
     } catch (error) {
       console.error(error);
       res.status(500).json({ success: false, error: "Server error" });

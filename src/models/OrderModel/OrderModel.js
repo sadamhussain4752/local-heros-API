@@ -37,6 +37,7 @@ const OrderSchema = new mongoose.Schema({
   exta_message: { type: String },
   exta_add_item: { type: String },
   applycoupon: { type: String },
+  track_Order_id : { type: String },
   quantity: [
     {
       productId: { type: mongoose.Schema.Types.ObjectId, ref: "Product", required: true },

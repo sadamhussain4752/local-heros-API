@@ -10,6 +10,8 @@ const AddressSchema = new mongoose.Schema({
   state: { type: String, required: true },
   pinCode: { type: String, required: true },
   email: { type: String, required: true },
+  lat: { type: String, required: true },
+  lng:  { type: String, required: true },
   typeAddress: { type: String, required: true } // Changed field name to camelCase
 });
 

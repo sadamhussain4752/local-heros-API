@@ -98,6 +98,100 @@ function checkFCMToken(user) {
   return true;
 }
 
+const createOrderAPI =  async(order_items) => {
+  console.log("order_items",order_items);
+
+  const address = await Address.findById(order_items.addressId);
+
+  const productPromises = order_items.quantity.map(async (productIds) => {
+    const product = await Product.findById(productIds.productId);
+    return {
+      "name": product.name,
+      "weight": product.weight,
+      "quantity": productIds.quantity,
+      "price": product.amount
+    };
+  });
+
+  let data = JSON.stringify({
+    "order_id": `${order_items._id}`,
+    "pickup_info": {
+      "name": "local Heros",
+      "phone_no": "9164640969",
+      "full_address": {
+        "address": "3rd Floor, 9th, A Main 559,9th A Main Rd, 1st Stage, Indiranagar,Bengaluru, Karnataka 560008",
+        "location": {
+          "latitude": 12.977638,
+          "longitude": 77.638682
+        },
+        "landmark": ""
+      }
+    },
+    "drop_info": {
+      "name": address.fullName,
+      "phone_no": address.phone,
+      "full_address": {
+        "address": address.typeAddress,
+        "location": {
+          "latitude": Number(address.lat),
+          "longitude":Number(address.lng) 
+        },
+        "landmark": "Opposite"
+      }
+    },
+    "order_value": order_items.totalAmount,
+    "category": "FOOD",
+    "amount_to_be_collected": 0,
+    "order_items":productPromises,
+    "preparation_time": 30,
+    "enable_batching": true,
+    "callback_url": "https://localheros.in/account",
+    // "otp": {
+    //   "pickup": "1234",
+    //   "drop": "2345",
+    //   "return": "3456"
+    // },
+    "instructions": {
+      "drop": "Please leave order at the door"
+    },
+    "tag": "550e8400-e29b-41d4-a716-446655440000"
+  });
+
+  console.log(data,"data");
+  
+  let config = {
+    method: 'post',
+    maxBodyLength: Infinity,
+    url: 'https://staging.runnr.in/zgw/merchant/v1/order/create',
+    headers: { 
+      'Content-Type': 'application/json', 
+      'Accept': 'application/json', 
+      'Authorization': '09064327-b592-4161-b92a-ac25495159c9'
+    },
+    data : data
+  };
+  
+  axios.request(config)
+  .then(async(response) => {
+    console.log(JSON.stringify(response.data));
+    // Check if the address exists
+    const existingOrder = await Order.findById(order_items._id);
+
+    if (!existingOrder) {
+      return res.status(404).json({ success: false, message: 'Order not found' });
+    }
+    // Update the address fields
+    existingOrder.track_Order_id = response.data.order_id;
+    // Save the updated address
+    const updatedAddress = await existingOrder.save();
+    
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+  
+} 
+
 // Create a new order with payment
 exports.createOrder = async (req, res) => {
   try {
@@ -158,6 +252,9 @@ exports.createOrder = async (req, res) => {
           console.log('Push notification sent successfully:', response.data);
         })
 
+
+      await createOrderAPI(newOrder)
+
       res.status(200).json({ success: true, order: newOrder });
     } catch (error) {
       console.error(error);
@@ -187,6 +284,58 @@ eventEmitter.on('paymentCompleted', ({ userId, totalAmount }) => {
   // Perform admin notification here
   console.log(`Admin notified: User ${userId} completed a payment of ${totalAmount}`);
 });
+
+
+const onTrackOrder = async (trackId) => {
+  let config = {
+    method: 'get',
+    maxBodyLength: Infinity,
+    url: `https://staging.runnr.in/zgw/merchant/v1/order/track?order_id=${trackId}`,
+    headers: { 
+      'Content-Type': 'application/json', 
+      'Accept': 'application/json', 
+      'Authorization': '09064327-b592-4161-b92a-ac25495159c9'
+    },
+  };
+
+  try {
+    const response = await axios.request(config);
+    return response.data;
+  } catch (error) {
+    console.error(`Error tracking order: ${error}`);
+    return error;
+    throw new Error('Error tracking order');
+  }
+};
+
+const CancelTrackOrder = async (trackId) => {
+  const data = JSON.stringify({
+    "order_id": trackId,
+    "reason": "CANCEL"
+  });
+
+  let config = {
+    method: 'post',
+    maxBodyLength: Infinity,
+    url: 'https://staging.runnr.in/zgw/merchant/v1/order/cancel',
+    headers: { 
+      'Content-Type': 'application/json', 
+      'Accept': 'application/json', 
+      'Authorization': '09064327-b592-4161-b92a-ac25495159c9'
+    },
+    data : data
+  };
+
+  try {
+    const response = await axios.request(config);
+    console.log(JSON.stringify(response.data));
+    return response.data; // Return the response data
+  } catch (error) {
+    return error; // Return the response data
+    console.log(error);
+    throw error; // Throw the error to be handled by the calling function
+  }
+};
 
 
 exports.getAllOrder = async (req, res) => {
@@ -551,3 +700,61 @@ async function calculateOrderStats(filters) {
 
   return orderStats;
 }
+
+
+// Get the status of a specific order by ID
+exports.OrderStatusById = async (req, res) => {
+  try {
+    const orderId = req.params.id;
+    console.log(orderId,"orderId");
+
+    // Check if the Order exists
+    const existingOrder = await Order.findById(orderId);
+
+    if (!existingOrder) {
+      return res.status(404).json({ success: false, message: "Order not found" });
+    }
+
+    // Track the order
+    const trackOrderList = await onTrackOrder(existingOrder.track_Order_id);
+
+    res.status(200).json({
+      success: true,
+      message: "Order status retrieved successfully",
+      response_message: trackOrderList
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, error: "Server error" });
+  }
+};
+
+// Delete a specific order by ID
+exports.CancelOrderById = async (req, res) => {
+  try {
+    const orderId = req.params.id;
+    const { order_id } = req.body;
+
+
+    // Check if the Order exists
+    const existingOrder = await Order.findById(orderId);
+
+    if (!existingOrder) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Order not found" });
+    }
+   
+
+    // Remove the Order from the database
+    let track_order_list = await CancelTrackOrder(existingOrder.track_Order_id);
+
+    res
+      .status(200)
+      .json({ success: true, message: "Cancel Order successfully", responce_message: track_order_list });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, error: "Server error" });
+  }
+};
+

@@ -22,4 +22,8 @@ router.post('/orders', OrderController.createOrderWithRazorpay);
 
 router.get('/payment-listen', OrderController.getpaymentlisten);
 
+router.get('/trackStatusByIds/:id', OrderController.OrderStatusById);
+
+router.post('/ordersCancel', OrderController.CancelOrderById);
+
 module.exports = router;
