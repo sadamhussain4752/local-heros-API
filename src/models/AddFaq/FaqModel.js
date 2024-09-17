@@ -35,6 +35,6 @@ const FaqSchema = new mongoose.Schema({
 
 });
 
-const Faq = mongoose.model('devFaq', FaqSchema);
+const Faq = mongoose.model('Faq', FaqSchema);
 
 module.exports = Faq;
