@@ -14,6 +14,6 @@ const CouponSchema = new mongoose.Schema({
   lang: { type: String },
 });
 
-const Coupon = mongoose.model("Coupon", CouponSchema);
+const Coupon = mongoose.model("devCoupon", CouponSchema);
 
 module.exports = Coupon;

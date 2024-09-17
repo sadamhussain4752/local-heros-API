@@ -19,10 +19,16 @@ const ProductSchema = new mongoose.Schema({
   brand_id: { type: String, }, // Assuming you have a Category model
   createdAt: { type: Date, default: Date.now },
   lang: { type: String },
-  exta_add_item: { type: String, required: true },
-  options:  {type: Boolean, default: false }
+  exta_add_item: { type: String },
+  options:  {type: Boolean, default: false },
+  is_type:  { type: String, },
+  itemid: { type: mongoose.Schema.Types.Mixed }, // Accepts any type
+  itemObject: { type: mongoose.Schema.Types.Mixed }, // Accepts any type
+  itemIdArray: { type: mongoose.Schema.Types.Mixed }, // Accepts any type (array or non-array)
+  itemObjectArray: { type: mongoose.Schema.Types.Mixed } // Accepts any type (array or non-array)
+
 });
 
-const Product = mongoose.model('Product', ProductSchema);
+const Product = mongoose.model('Products', ProductSchema);
 
 module.exports = Product;

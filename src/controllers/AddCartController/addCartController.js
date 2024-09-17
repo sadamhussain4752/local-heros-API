@@ -12,7 +12,7 @@ const LANGID = {
 // Create a new item in the cart
 exports.createCartItem = async (req, res) => {
   try {
-    const { userId, productId, quantity ,Options_item } = req.body;
+    const { userId, productId, quantity ,Options_item ,Combo_type} = req.body;
     const existingCartItem = await AddCart.findOne({ userId, productId });
 
 
@@ -30,7 +30,9 @@ exports.createCartItem = async (req, res) => {
         userId,
         productId,
         quantity: parsedQuantity,
-        Options_item
+        Options_item,
+        Combo_type
+
       });
       res.status(200).json({ success: true, cartItem: newCartItem });
     } else {

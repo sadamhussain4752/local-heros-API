@@ -5,11 +5,8 @@ const Address = require("../../models/Address/AddressModel");
 const moment = require("moment");
 const axios = require("axios");
 
-const EventEmitter = require('events');
+const EventEmitter = require("events");
 const twilio = require("twilio");
-
-
-
 
 const PAYMENTSTATUS = {
   1: "Completed",
@@ -34,16 +31,17 @@ const orderStatuses = [
 const eventEmitter = new EventEmitter();
 
 // Define the FCM server key
-const serverKey = 'AAAA2OuANNg:APA91bHhYI2KxWGRqm60dgGtrzbGYGAjKlTtU1K7_NEosNe8RR4RmeFzw9CYtGXnEToWcOQeCMnsqg27BY5FVkAC-qCMq6Fv1ic8yoJcPQiw1ew9oHgR2H_u7Za-jLykypzIAdN_b1Zu'; // Replace 'YOUR_SERVER_KEY' with your FCM server key
+const serverKey =
+  "AAAA2OuANNg:APA91bHhYI2KxWGRqm60dgGtrzbGYGAjKlTtU1K7_NEosNe8RR4RmeFzw9CYtGXnEToWcOQeCMnsqg27BY5FVkAC-qCMq6Fv1ic8yoJcPQiw1ew9oHgR2H_u7Za-jLykypzIAdN_b1Zu"; // Replace 'YOUR_SERVER_KEY' with your FCM server key
 
 // Define the FCM endpoint
-const fcmEndpoint = 'https://fcm.googleapis.com/fcm/send';
+const fcmEndpoint = "https://fcm.googleapis.com/fcm/send";
 
 const accountSid = "AC7293676e0655bebc9648970017499691";
 const authToken = "fca7569062b1ad9069c81c1714e98383";
 const client = new twilio(accountSid, authToken);
 // Function to send SMS
-async function sendVerificationSMS(phoneNumber,msg) {
+async function sendVerificationSMS(phoneNumber, msg) {
   const apiKey = "07a81cfd6463953ac8e5f3a9d43c1985";
   const sender = "LHEROS";
   const templateId = "1607100000000307112";
@@ -54,18 +52,17 @@ async function sendVerificationSMS(phoneNumber,msg) {
     sender: sender,
     number: phoneNumber,
     sms: `Congratulations! Your order is confirmed. Estimated Delivery Time: ${msg} Thank you for choosing Swiggy! -LOCAL HEROS`,
-    templateid: templateId
+    templateid: templateId,
   };
 
   try {
-    const response = await axios.get('http://site.ping4sms.com/api/smsapi', {
-      params: smsData
+    const response = await axios.get("http://site.ping4sms.com/api/smsapi", {
+      params: smsData,
     });
 
     // Assuming the response provides some confirmation of successful SMS delivery,
     // you can handle it here based on the structure of the response.
     console.log("SMS Sent Successfully:", response.data);
-
   } catch (error) {
     console.error("Error sending verification SMS:", error);
   }
@@ -75,15 +72,14 @@ const sendWhatsApp = async (to, body) => {
   try {
     await client.messages.create({
       body: body,
-      from: 'whatsapp:' + 14155238886,
-      to: 'whatsapp:' + to
+      from: "whatsapp:" + 14155238886,
+      to: "whatsapp:" + to,
     });
-    console.log('WhatsApp message sent successfully!');
+    console.log("WhatsApp message sent successfully!");
   } catch (error) {
-    console.error('Error sending WhatsApp message:', error);
+    console.error("Error sending WhatsApp message:", error);
   }
 };
-
 
 // Function to send message
 function sendMessage(user) {
@@ -98,99 +94,197 @@ function checkFCMToken(user) {
   return true;
 }
 
-const createOrderAPI =  async(order_items) => {
-  console.log("order_items",order_items);
-
-  const address = await Address.findById(order_items.addressId);
-
-  const productPromises = order_items.quantity.map(async (productIds) => {
-    const product = await Product.findById(productIds.productId);
-    return {
-      "name": product.name,
-      "weight": product.weight,
-      "quantity": productIds.quantity,
-      "price": product.amount
-    };
-  });
-
-  let data = JSON.stringify({
-    "order_id": `${order_items._id}`,
-    "pickup_info": {
-      "name": "local Heros",
-      "phone_no": "9164640969",
-      "full_address": {
-        "address": "3rd Floor, 9th, A Main 559,9th A Main Rd, 1st Stage, Indiranagar,Bengaluru, Karnataka 560008",
-        "location": {
-          "latitude": 12.977638,
-          "longitude": 77.638682
-        },
-        "landmark": ""
-      }
-    },
-    "drop_info": {
-      "name": address.fullName,
-      "phone_no": address.phone,
-      "full_address": {
-        "address": address.typeAddress,
-        "location": {
-          "latitude": Number(address.lat),
-          "longitude":Number(address.lng) 
-        },
-        "landmark": "Opposite"
-      }
-    },
-    "order_value": order_items.totalAmount,
-    "category": "FOOD",
-    "amount_to_be_collected": 0,
-    "order_items":productPromises,
-    "preparation_time": 30,
-    "enable_batching": true,
-    "callback_url": "https://localheros.in/account",
-    // "otp": {
-    //   "pickup": "1234",
-    //   "drop": "2345",
-    //   "return": "3456"
-    // },
-    "instructions": {
-      "drop": "Please leave order at the door"
-    },
-    "tag": "550e8400-e29b-41d4-a716-446655440000"
-  });
-
-  console.log(data,"data");
-  
-  let config = {
-    method: 'post',
-    maxBodyLength: Infinity,
-    url: 'https://staging.runnr.in/zgw/merchant/v1/order/create',
-    headers: { 
-      'Content-Type': 'application/json', 
-      'Accept': 'application/json', 
-      'Authorization': '09064327-b592-4161-b92a-ac25495159c9'
-    },
-    data : data
-  };
-  
-  axios.request(config)
-  .then(async(response) => {
-    console.log(JSON.stringify(response.data));
-    // Check if the address exists
-    const existingOrder = await Order.findById(order_items._id);
-
-    if (!existingOrder) {
-      return res.status(404).json({ success: false, message: 'Order not found' });
-    }
-    // Update the address fields
-    existingOrder.track_Order_id = response.data.order_id;
-    // Save the updated address
-    const updatedAddress = await existingOrder.save();
+const createOrderAPI = async (order_items) => {
+  try {
+    const address = await Address.findById(order_items.addressId);
+    const userIdName = await User.findById(order_items.userId);
+    console.log('====================================');
+    console.log(order_items,"order_items");
+    console.log('====================================');
+    const productPromises = order_items.quantity.map(async (productObj) => {
+      const product = await Product.findById(productObj.productId);
     
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-  
-} 
+      return {
+        id: product.itemid,
+        name: product.itemObject.itemname,
+        gst_liability: "vendor",
+        item_tax: [
+          {
+            id: "11213",
+            name: "CGST",
+            amount: "3.15",
+          },
+          {
+            id: "20375",
+            name: "SGST",
+            amount: "3.15",
+          },
+        ],
+        item_discount: "14",
+        price: product.offeramount,
+        final_price: product.amount,
+        quantity: productObj.quantity,
+        description: product.description,
+        variation_name: "",
+        variation_id: "0",
+        AddonItem: {
+          details: [],
+        },
+      };
+    });
+
+    const productsWithDetails = await Promise.all(productPromises);
+
+    const axios = require("axios");
+    const datas = JSON.stringify({
+      app_key: "7i1exrcwkgpzm4tudn2of3q0vj5bs8ah",
+      app_secret: "092bca6740756d7aa5aa6177338f60def7d1d271",
+      access_token: "d145e7795b322cf394ec154e43f5f3969881ff8a",
+      orderinfo: {
+        OrderInfo: {
+          Restaurant: {
+            details: {
+              res_name: "local Heros",
+              address:
+                "3rd Floor, 9th, A Main 559,9th A Main Rd, 1st Stage, Indiranagar, Bengaluru, Karnataka 560008",
+              contact_information: "9164640969",
+              restID: "0k1h7zgq",
+            },
+          },
+          Customer: {
+            details: {
+              email: userIdName?.email,
+              name: userIdName?.firstname,
+              address: address?.street,
+              phone: address?.phone,
+              latitude: address?.lat,
+              longitude: address?.lng,
+            },
+          },
+          Order: {
+            details: {
+              orderID: order_items._id,
+              preorder_date: moment().format("YYYY-MM-DD"),
+              preorder_time: moment().format("HH:mm:ss"),
+              service_charge: "0",
+              // sc_tax_amount: "0",
+              delivery_charges: "50",
+              // dc_tax_amount: "2.5",
+              // dc_gst_details: [
+              //   {
+              //     gst_liable: "restaurant",
+              //     amount: "0",
+              //   },
+              // ],
+              packing_charges: "25",
+              // pc_tax_amount: "1",
+              // pc_gst_details: [
+              //   {
+              //     gst_liable: "restaurant",
+              //     amount: "0",
+              //   },
+              // ],
+              order_type: "H",
+              ondc_bap: "buyerAppName",
+              advanced_order: "N",
+              payment_type: "CARD",
+              table_no: "",
+              no_of_persons: "1",
+              discount_total: "0",
+              tax_total: "18",
+              discount_type: "F",
+              total: order_items.totalAmount,
+              created_on: moment().format("YYYY-MM-DD HH:mm:ss"),
+              enable_delivery: 0,
+              min_prep_time: 30,
+              callback_url: "https://localheros.in/",
+              collect_cash: order_items.totalAmount,
+            },
+          },
+          OrderItem: {
+            details: productsWithDetails,
+          },
+          // Tax: {
+          //   details: [
+          //     {
+          //       id: "11213",
+          //       title: "CGST",
+          //       type: "P",
+          //       price: "2.5",
+          //       tax: "5.9",
+          //       restaurant_liable_amt: "0.00",
+          //     },
+          //     {
+          //       id: "20375",
+          //       title: "SGST",
+          //       type: "P",
+          //       price: "2.5",
+          //       tax: "5.9",
+          //       restaurant_liable_amt: "0.00",
+          //     },
+          //   ],
+          // },
+          Discount: {
+            details: [
+              {
+                id: "362",
+                title: "Discount",
+                type: "F",
+                price: "45",
+              },
+            ],
+          },
+        },
+        udid: "",
+        device_type: "Web",
+      },
+    });
+
+    const config = {
+      method: "post",
+      maxBodyLength: Infinity,
+      url: "https://qle1yy2ydc.execute-api.ap-southeast-1.amazonaws.com/V1/save_order",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: datas,
+    };
+
+    const response = await axios.request(config);
+    console.log(JSON.stringify(response.data));
+     return JSON.stringify(response.data)
+  } catch (error) {
+    return "Error creating order:", error
+    console.error("Error creating order:", error);
+  }
+};
+
+const capturePayment = async (payment_id, amount) => {
+  try {
+    const response = await fetch(
+      `https://api.razorpay.com/v1/payments/${payment_id}/capture`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Basic ${Buffer.from(
+            "rzp_live_ZTtFcdDX7OeqJJ:ZOHW4r4AAk3ELI6V0ebLDCKz"
+          ).toString("base64")}`,
+          // Replace 'your_api_key' and 'your_api_secret' with your actual Razorpay API key and secret
+        },
+        body: JSON.stringify({
+          amount: amount * 100, // Amount in smallest currency unit (e.g., 100 for INR 1.00)
+          currency: "INR",
+        }),
+      }
+    );
+
+    const data = await response.json();
+    console.log("Payment captured:", data);
+  } catch (error) {
+    console.error("Error capturing payment:", error);
+  }
+};
 
 // Create a new order with payment
 exports.createOrder = async (req, res) => {
@@ -206,7 +300,7 @@ exports.createOrder = async (req, res) => {
       exta_add_item,
       exta_message,
       applycoupon,
-      quantity
+      quantity,
     } = req.body;
 
     // Create a new order
@@ -215,56 +309,57 @@ exports.createOrder = async (req, res) => {
       addressId,
       productIds,
       totalAmount,
-      paymentStatus, // You may adjust the initial payment status
+      paymentStatus,
       delivery,
       exta_add_item,
       exta_message,
       razorpay_payment_id,
       applycoupon,
-      quantity
+      quantity,
     });
 
     const newProduct = await Product.findById(productIds[0]);
-    console.log(newProduct);
+
+    try {
+      await capturePayment(razorpay_payment_id, totalAmount);
+    } catch (error) {
+      console.error("Payment capture failed", error);
+    }
+
     const users = await User.find({ UserType: "1" });
-    // Filter FCM tokens and create an array
-    const fcmTokenList = users.filter(user => checkFCMToken(user)).map(user => user.fcm_token);
-    console.log(fcmTokenList);
-    // Prepare the push notification message
+    const fcmTokenList = users
+      .filter((user) => user.fcm_token)
+      .map((user) => user.fcm_token);
+
     const message = {
-      registration_ids: fcmTokenList, // Use registration_ids instead of 'to' for multiple recipients
+      registration_ids: fcmTokenList,
       notification: {
         title: newProduct.name,
         body: `${newProduct.name} - ${newProduct.description}\nPayment Status: ${paymentStatus}\nAmount: ${totalAmount}`,
-      }
+      },
     };
 
-
     try {
-      // Send the push notification
-      axios.post(fcmEndpoint, message, {
+      await axios.post(fcmEndpoint, message, {
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `key=${serverKey}`,
+          "Content-Type": "application/json",
+          Authorization: `key=${serverKey}`,
         },
-      })
-        .then(response => {
-          console.log('Push notification sent successfully:', response.data);
-        })
-
-
-      await createOrderAPI(newOrder)
-
-      res.status(200).json({ success: true, order: newOrder });
+      });
+      console.log("Push notification sent successfully");
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ success: false, error: "Server error" });
+      console.error("Error sending push notification", error);
     }
+
+    await createOrderAPI(newOrder);
+
+    res.status(200).json({ success: true, order: newOrder });
   } catch (error) {
-
+    console.error("Error creating order", error);
+    res.status(500).json({ success: false, error: "Server error" });
   }
-
 };
+
 async function processPayment(userId, totalAmount) {
   return new Promise((resolve) => {
     // Simulate payment processing with a delay
@@ -275,26 +370,23 @@ async function processPayment(userId, totalAmount) {
   });
 }
 
-
-
-
-
 // Admin notification logic
-eventEmitter.on('paymentCompleted', ({ userId, totalAmount }) => {
+eventEmitter.on("paymentCompleted", ({ userId, totalAmount }) => {
   // Perform admin notification here
-  console.log(`Admin notified: User ${userId} completed a payment of ${totalAmount}`);
+  console.log(
+    `Admin notified: User ${userId} completed a payment of ${totalAmount}`
+  );
 });
-
 
 const onTrackOrder = async (trackId) => {
   let config = {
-    method: 'get',
+    method: "get",
     maxBodyLength: Infinity,
     url: `https://staging.runnr.in/zgw/merchant/v1/order/track?order_id=${trackId}`,
-    headers: { 
-      'Content-Type': 'application/json', 
-      'Accept': 'application/json', 
-      'Authorization': '09064327-b592-4161-b92a-ac25495159c9'
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: "09064327-b592-4161-b92a-ac25495159c9",
     },
   };
 
@@ -304,26 +396,26 @@ const onTrackOrder = async (trackId) => {
   } catch (error) {
     console.error(`Error tracking order: ${error}`);
     return error;
-    throw new Error('Error tracking order');
+    throw new Error("Error tracking order");
   }
 };
 
 const CancelTrackOrder = async (trackId) => {
   const data = JSON.stringify({
-    "order_id": trackId,
-    "reason": "CANCEL"
+    order_id: trackId,
+    reason: "CANCEL",
   });
 
   let config = {
-    method: 'post',
+    method: "post",
     maxBodyLength: Infinity,
-    url: 'https://staging.runnr.in/zgw/merchant/v1/order/cancel',
-    headers: { 
-      'Content-Type': 'application/json', 
-      'Accept': 'application/json', 
-      'Authorization': '09064327-b592-4161-b92a-ac25495159c9'
+    url: "https://staging.runnr.in/zgw/merchant/v1/order/cancel",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: "09064327-b592-4161-b92a-ac25495159c9",
     },
-    data : data
+    data: data,
   };
 
   try {
@@ -336,7 +428,6 @@ const CancelTrackOrder = async (trackId) => {
     throw error; // Throw the error to be handled by the calling function
   }
 };
-
 
 exports.getAllOrder = async (req, res) => {
   try {
@@ -367,7 +458,6 @@ exports.getAllOrder = async (req, res) => {
         }
         const product = await Product.findById(prod.productId);
         return Options_product !== "" ? product : { Options_product, product };
-
       });
 
       // Wait for all promises to resolve
@@ -422,7 +512,6 @@ exports.getAllOrderList = async (req, res) => {
 };
 
 exports.getpaymentlisten = async (req, res) => {
-
   const { userId, amount } = req.body;
 
   try {
@@ -431,15 +520,14 @@ exports.getpaymentlisten = async (req, res) => {
     await processPayment(userId, amount);
 
     // Emit an event to notify the admin
-    eventEmitter.emit('paymentCompleted', { userId, amount });
-
+    eventEmitter.emit("paymentCompleted", { userId, amount });
 
     res.status(200).json({ success: true, orderList });
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, error: "Server error" });
   }
-}
+};
 
 // Update a specific order by ID
 exports.updateOrderById = async (req, res) => {
@@ -701,18 +789,19 @@ async function calculateOrderStats(filters) {
   return orderStats;
 }
 
-
 // Get the status of a specific order by ID
 exports.OrderStatusById = async (req, res) => {
   try {
     const orderId = req.params.id;
-    console.log(orderId,"orderId");
+    console.log(orderId, "orderId");
 
     // Check if the Order exists
     const existingOrder = await Order.findById(orderId);
 
     if (!existingOrder) {
-      return res.status(404).json({ success: false, message: "Order not found" });
+      return res
+        .status(404)
+        .json({ success: false, message: "Order not found" });
     }
 
     // Track the order
@@ -721,7 +810,7 @@ exports.OrderStatusById = async (req, res) => {
     res.status(200).json({
       success: true,
       message: "Order status retrieved successfully",
-      response_message: trackOrderList
+      response_message: trackOrderList,
     });
   } catch (error) {
     console.error(error);
@@ -735,7 +824,6 @@ exports.CancelOrderById = async (req, res) => {
     const orderId = req.params.id;
     const { order_id } = req.body;
 
-
     // Check if the Order exists
     const existingOrder = await Order.findById(orderId);
 
@@ -744,17 +832,19 @@ exports.CancelOrderById = async (req, res) => {
         .status(404)
         .json({ success: false, message: "Order not found" });
     }
-   
 
     // Remove the Order from the database
     let track_order_list = await CancelTrackOrder(existingOrder.track_Order_id);
 
     res
       .status(200)
-      .json({ success: true, message: "Cancel Order successfully", responce_message: track_order_list });
+      .json({
+        success: true,
+        message: "Cancel Order successfully",
+        responce_message: track_order_list,
+      });
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, error: "Server error" });
   }
 };
-

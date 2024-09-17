@@ -15,6 +15,6 @@ const AddressSchema = new mongoose.Schema({
   typeAddress: { type: String, required: true } // Changed field name to camelCase
 });
 
-const Address = mongoose.model('Address', AddressSchema);
+const Address = mongoose.model('devAddress', AddressSchema);
 
 module.exports = Address;

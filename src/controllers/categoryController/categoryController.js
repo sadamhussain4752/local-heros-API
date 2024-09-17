@@ -87,10 +87,10 @@ exports.updateCategoryById = async (req, res) => {
     existingCategory.name = name;
     existingCategory.isActive = isActive;
     existingCategory.description = description;
-    existingCategory.imageUrl = req.fileUrls[0];
+    // existingCategory.imageUrl = req.fileUrls[0]; 
     existingCategory.createdBy = createdBy;
     existingCategory.lang = lang;
-    existingCategory.order_by = order_by
+    // existingCategory.order_by = order_by
     
 
     // Save the updated category

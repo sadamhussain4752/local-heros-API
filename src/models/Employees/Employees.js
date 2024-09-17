@@ -30,6 +30,6 @@ const EmployeesSchema = new mongoose.Schema({
   },
 });
 
-const Employee = mongoose.model('Employee', EmployeesSchema);
+const Employee = mongoose.model('devEmployee', EmployeesSchema);
 
 module.exports = Employee;

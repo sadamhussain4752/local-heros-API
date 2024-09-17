@@ -13,6 +13,6 @@ const BrandSchema = new mongoose.Schema({
 
 });
 
-const Brand = mongoose.model('Brand', BrandSchema);
+const Brand = mongoose.model('devBrand', BrandSchema);
 
 module.exports = Brand;
