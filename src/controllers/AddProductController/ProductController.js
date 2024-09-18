@@ -594,7 +594,59 @@ exports.getAllProducts = async (req, res) => {
  
   try {
 
-   
+    const productsss = await Product.updateMany(
+      {}, // Empty filter to match all documents
+      {
+        $set: {
+         "itemid": "10542628",
+         "itemObject": {
+      "itemid": "10542628",
+      "itemallowvariation": "0",
+      "itemrank": "1",
+      "item_categoryid": "77771",
+      "item_ordertype": "1,2,3",
+      "item_packingcharges": "15",
+      "itemallowaddon": "1",
+      "itemaddonbasedon": "0",
+      "item_favorite": "0",
+      "ignore_taxes": "0",
+      "ignore_discounts": "0",
+      "in_stock": "2",
+      "cuisine": [],
+      "variation_groupname": "",
+      "variation": [],
+      "addon": [
+        {
+          "addon_group_id": "11619",
+          "addon_item_selection_min": "0",
+          "addon_item_selection_max": "1"
+        },
+        {
+          "addon_group_id": "11621",
+          "addon_item_selection_min": "0",
+          "addon_item_selection_max": "1"
+        },
+        {
+          "addon_group_id": "11620",
+          "addon_item_selection_min": "0",
+          "addon_item_selection_max": "4"
+        }
+      ],
+      "is_recommend": "0",
+      "itemname": "Classic Mysore Biryani + Kabab",
+      "item_attributeid": "2",
+      "itemdescription": "Ditch the decision fatigue - we've got your complete feast covered!   Choose your favourite Biriyaani, from our range of Cassic Mysore, Epic Bangalore, Hyderabadi or Chicken 65 Biryani and we will make it even more exciting by adding some Kababs to the box.",
+      "minimumpreparationtime": "",
+      "price": "299.00",
+      "active": "1",
+      "item_image_url": "",
+      "item_tax": "2532,2533",
+      "tax_inclusive": false,
+      "gst_type": "services"
+    }
+        },
+      }
+    );
     const products = await Product.find({ lang: LANGID[lang] });
    
    

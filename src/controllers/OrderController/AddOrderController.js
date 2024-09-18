@@ -176,7 +176,7 @@ const createOrderAPI = async (order_items) => {
               //     amount: "0",
               //   },
               // ],
-              packing_charges: "25",
+              packing_charges: "0",
               // pc_tax_amount: "1",
               // pc_gst_details: [
               //   {
@@ -230,7 +230,7 @@ const createOrderAPI = async (order_items) => {
                 id: "362",
                 title: "Discount",
                 type: "F",
-                price: "45",
+                price: "0",
               },
             ],
           },
