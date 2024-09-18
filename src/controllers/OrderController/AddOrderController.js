@@ -107,7 +107,7 @@ const createOrderAPI = async (order_items) => {
       return {
         id: product.itemid,
         name: product.itemObject.itemname,
-        gst_liability: "vendor",
+        gst_liability: "Restaurant",
         item_tax: [
           {
             id: "11213",
@@ -121,8 +121,8 @@ const createOrderAPI = async (order_items) => {
           },
         ],
         item_discount: "14",
-        price: product.amount ,
-        final_price: product.offeramount,
+        price: product.amount.toString() ,
+        final_price: product.offeramount.toString(),
         quantity: productObj.quantity,
         description: product.description,
         variation_name: "",
@@ -190,15 +190,15 @@ const createOrderAPI = async (order_items) => {
               payment_type: "CARD",
               table_no: "",
               no_of_persons: "1",
-              discount_total: "0",
+              discount_total: "",
               tax_total: "18",
-              discount_type: "F",
-              total: order_items.totalAmount,
+              discount_type: "",
+              total: order_items.totalAmount.toString(),
               created_on: moment().format("YYYY-MM-DD HH:mm:ss"),
               enable_delivery: 0,
               min_prep_time: 30,
               callback_url: "https://localheros.in/",
-              collect_cash: order_items.totalAmount,
+              collect_cash: order_items.totalAmount.toString(),
             },
           },
           OrderItem: {
@@ -224,16 +224,16 @@ const createOrderAPI = async (order_items) => {
           //     },
           //   ],
           // },
-          Discount: {
-            details: [
-              {
-                id: "362",
-                title: "Discount",
-                type: "F",
-                price: "0",
-              },
-            ],
-          },
+          // Discount: {
+          //   details: [
+          //     {
+          //       id: "362",
+          //       title: "Discount",
+          //       type: "F",
+          //       price: "0",
+          //     },
+          //   ],
+          // },
         },
         udid: "",
         device_type: "Web",
