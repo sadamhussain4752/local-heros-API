@@ -168,7 +168,7 @@ const createOrderAPI = async (order_items) => {
               preorder_time: moment().format("HH:mm:ss"),
               service_charge: "0",
               // sc_tax_amount: "0",
-              delivery_charges: "50",
+              delivery_charges: "0",
               // dc_tax_amount: "2.5",
               // dc_gst_details: [
               //   {

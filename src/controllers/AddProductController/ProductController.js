@@ -593,6 +593,8 @@ exports.getAllProducts = async (req, res) => {
   }
  
   try {
+
+   
     const products = await Product.find({ lang: LANGID[lang] });
    
    
