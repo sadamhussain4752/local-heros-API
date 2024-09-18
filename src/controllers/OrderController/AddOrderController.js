@@ -112,17 +112,17 @@ const createOrderAPI = async (order_items) => {
           {
             id: "11213",
             name: "CGST",
-            amount: "3.15",
+            amount: "2.5",
           },
           {
             id: "20375",
             name: "SGST",
-            amount: "3.15",
+            amount: "2.5",
           },
         ],
         item_discount: "14",
-        price: product.offeramount,
-        final_price: product.amount,
+        price: product.amount ,
+        final_price: product.offeramount,
         quantity: productObj.quantity,
         description: product.description,
         variation_name: "",
@@ -146,7 +146,7 @@ const createOrderAPI = async (order_items) => {
             details: {
               res_name: "local Heros",
               address:
-                "3rd Floor, 9th, A Main 559,9th A Main Rd, 1st Stage, Indiranagar, Bengaluru, Karnataka 560008",
+                "3rd Floor, 559,9th A Main Rd, 1st Stage, Indiranagar, Bengaluru, Karnataka 560008",
               contact_information: "9164640969",
               restID: "0k1h7zgq",
             },
@@ -239,7 +239,9 @@ const createOrderAPI = async (order_items) => {
         device_type: "Web",
       },
     });
-
+   console.log('====================================');
+   console.log(datas,"datas");
+   console.log('====================================');
     const config = {
       method: "post",
       maxBodyLength: Infinity,
