@@ -598,7 +598,7 @@ exports.updateOrderById = async (req, res) => {
       const messageBody = `Order has been Done: ${orderId.substring(0, 6)}`;
       if (status === "Cancelled") {
         let track_order_list = await CancelTrackOrders(orderId);
-        console.log(track_order_list.orderID,'track_order_list');
+        console.log(track_order_list,'track_order_list');
         existingOrder.exta_message = "Order status updated successfully"; // Assuming 'status' is the field you want to update
       }
 
