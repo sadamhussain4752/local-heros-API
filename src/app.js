@@ -23,6 +23,7 @@ const orderRoutes = require("./routes/OrderRoutes/orderRoutes");
 const BannerRoutes = require("./routes/BannerRouters/BannerRoutes");
 const EmployeeRoutes = require("./routes/AddEmployess/addEmployeesRoutes")
 const FAQRoutes = require("./routes/AddFaqRoutes/faqRoutes")
+const ngrok = require('ngrok');  // For exposing local server publicly
 
 // const files = fs.readFileSync('./62ACF8182B9E5DCCC1E610CE4B2C525F.txt') 
 
@@ -99,6 +100,34 @@ app.use("/api/order", orderRoutes);
 app.use("/api/header", BannerRoutes);
 app.use("/api/staff", EmployeeRoutes);
 app.use("/api/faq", FAQRoutes);
+// // Redirect HTTP to HTTPS and enforce domain redirection to localheros.in
+// app.use((req, res, next) => {
+//   const host = req.headers.host;
+  
+//   // Check if the request is not using HTTPS or not hitting the correct domain
+//   if (req.protocol !== "https" || host !== "localheros.in") {
+//     return res.redirect(301, `https://localheros.in`);
+//   }
+
+//   // If everything is correct, proceed with the request
+//   next();
+// });
+
+// // Define root route for the API
+// app.get("/", (req, res) => {
+//   res.send("Welcome to the API! Available routes are /api/auth, /api/user, etc.");
+// });
+
+// Handle undefined routes (404)
+// app.use((req, res, next) => {
+//   res.status(404).send("Sorry, that route does not exist.");
+// });
+// Webhook endpoint to receive requests
+app.post('/menu-push', (req, res) => {
+  console.log('Webhook Event Received:', req.body);
+  res.status(200).send('Webhook Event Received Successfully');
+});
+
 
 app.post("/local-heros-submit-form", (req, res) => {
   const { name, email, pinCode, phone, productName, quantity, message } = req.body;
@@ -137,55 +166,14 @@ app.post("/local-heros-submit-form", (req, res) => {
   const mailOptions = {
     from: `${subjects} <noreply@localheros.in>`,
     to: [
-      "info@imsolutions.mobi",
+      // "info@imsolutions.mobi",
       // "shashi@localheros.in",
       // "sadamdon4752@gmail.com"
-     // "sadam@imsolutions.mobi"
+     "sadam@imsolutions.mobi"
     ],
     subject: subjects,
     html: emailContent,
   };
-  const AWS_SES = new AWS.SES(SES_CONFIG);
-
-  const sendEmail = async (recipientEmail) => {
-    let params = {
-      Source: "noreply@localheros.in", // Replace YOUR_CUSTOM_DOMAIN with your custom domain verified in SES
-      Destination: {
-        ToAddresses: [
-          //"info@imsolutions.mobi",
-          "ops@localheros.in",
-          "shashi@localheros.in",
-          //"sadamdon4752@gmail.com"
-          //"sadam@imsolutions.mobi"
-        ],
-      },
-      ReplyToAddresses: [],
-      Message: {
-        Body: {
-          Html: {
-            Charset: 'UTF-8',
-            Data: `${emailContent}`,
-          },
-
-        },
-        Subject: {
-          Charset: 'UTF-8',
-          Data: `${subjects}`,
-        }
-      },
-    };
-
-    try {
-      const emailres = await AWS_SES.sendEmail(params).promise();
-      console.log('Email has been sent!', emailres);
-      res.status(200).send("Email sent successfully");
-    } catch (error) {
-      console.error(error);
-      res.status(500).send("Internal Server Error");
-    }
-  }
-
-  sendEmail(mailOptions.to);
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
@@ -199,6 +187,7 @@ app.post("/local-heros-submit-form", (req, res) => {
 });
 
 
+
 // Additional routes or middleware, if any
 
 // app.get("/.well-known/pki-validation/7A4BF23AF4370A8CB30130005F7212B3.txt", (req, res) => {
@@ -206,96 +195,14 @@ app.post("/local-heros-submit-form", (req, res) => {
 //   res.sendFile(filePath);
 // });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+// Start listening on the defined port
+app.listen(port, async () => {
+  console.log(`Listening for events on http://localhost:${port}`);
+
+  // // Use ngrok to expose the local server publicly
+  // const url = await ngrok.connect(port);
+  // console.log(`Public URL via ngrok: ${url}`);
 });
 // exports.backend = functions.https.onRequest(app);
-
-
-// const express = require('express');
-// const nodemailer = require('nodemailer');
-// const bodyParser = require('body-parser');
-// const cors = require("cors"); // Import cors middleware
-
-
-// const app = express();
-// const port = 3000;
-// app.use(cors());
-
-
-// app.use(bodyParser.json()); // Use bodyParser.json() instead of bodyParser.urlencoded()
-// app.use(express.static('public')); // Serve static files from 'public' directory
-
-// // Email configuration
-// const transporter = nodemailer.createTransport({
-//     host: "smtp.gmail.com",
-//     port: 587,
-//     auth: {
-//         user: "noreply@imsolutions.mobi",
-//         pass: "ssfnuabpmshuhlwj"
-//     }
-// });
-
-// // Function to validate email
-// function validateEmail(value) {
-//     const regex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-//     return value === '' ? false : !regex.test(value);
-// }
-
-// // Function to validate mobile number
-// function validateMobile(phone) {
-//     return "";
-// }
-
-// app.post('/submit-form', (req, res) => {
-//     const { name, email, phone, message } = req.body;
-//     const subject = 'Enquiry from Bengal Lamps Bangalore';
-
-//     // // Validation logic
-//     // if (!name || !email || !phone || !message) {
-//     //     return res.status(400).send('All fields are required');
-//     // }
-
-//     // if (!validateMobile(phone)) {
-//     //     return res.status(400).send('Enter a valid 10-digit mobile number');
-//     // }
-
-//     // if (!validateEmail(email)) {
-//     //     return res.status(400).send('Enter a valid email address');
-//     // }
-
-//     const emailContent = `
-//     <p>Name: ${name}</p>
-//     <p>Email: ${email}</p>
-//     <p>Phone: ${phone}</p>
-//     <p>Message: ${message}</p>
-//     <table cellspacing="0" cellpadding="0" style="width:100%; border-bottom:1px solid #eee; font-size:12px; line-height:135%">
-//         <!-- ... (same as PHP code) ... -->
-//     </table>
-// `;
-
-//     // Email options
-//     const mailOptions = {
-//         from: 'Bengal Lamps Bangalore <noreply@ims.a2hosted.com>',
-//         to: ['sadamdon4752@gmail.com'],
-//         subject: subject,
-//         html: emailContent
-//     };
-
-//     // Send email
-//     transporter.sendMail(mailOptions, (error, info) => {
-//         if (error) {
-//             console.error(error);
-//             res.status(500).send('Internal Server Error');
-//         } else {
-//             console.log('Email sent: ' + info.response);
-//             res.status(200).send('Email sent successfully');
-//         }
-//     });
-// });
-
-// app.listen(port, () => {
-//     console.log(`Server is running at http://localhost:${port}`);
-// });
 
 

@@ -82,12 +82,13 @@ exports.updateCategoryById = async (req, res) => {
 
     const imagePaths = req.files ? req.files.map(file => `${file.filename}`) : null;
     console.log(imagePaths);
-    
+    console.log(req.fileUrls,"req.fileUrls");
+
     // Update the category fields
     existingCategory.name = name;
     existingCategory.isActive = isActive;
     existingCategory.description = description;
-    // existingCategory.imageUrl = req.fileUrls[0]; 
+    existingCategory.imageUrl = req.fileUrls; 
     existingCategory.createdBy = createdBy;
     existingCategory.lang = lang;
     // existingCategory.order_by = order_by

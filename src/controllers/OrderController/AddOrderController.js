@@ -112,21 +112,21 @@ const createOrderAPI = async (order_items) => {
           {
             id: "11213",
             name: "CGST",
-            amount: "2.5",
+            amount: (((product.amount / 1.05) * 2.5) / 100).toFixed(2),
           },
           {
             id: "20375",
             name: "SGST",
-            amount: "2.5",
+            amount: (((product.amount / 1.05) * 2.5) / 100).toFixed(2)
           },
         ],
-        item_discount: "14",
+        item_discount: "",
         price: product.amount.toString() ,
-        final_price: product.offeramount.toString(),
+        final_price: product.amount.toString(),
         quantity: productObj.quantity,
-        description: product.description,
+        description:"",
         variation_name: "",
-        variation_id: "0",
+        variation_id: "",
         AddonItem: {
           details: [],
         },
@@ -134,21 +134,24 @@ const createOrderAPI = async (order_items) => {
     });
 
     const productsWithDetails = await Promise.all(productPromises);
-
+    const tax_base = order_items.totalAmount / 1.05; // Base amount without tax
+    const tax_rate = 2.5 / 100; // Tax rate percentage
+    
+    const tax_total = ((tax_base * tax_rate) * 2).toFixed(2); // Calculate tax and round to 2 decimal places
     const axios = require("axios");
     const datas = JSON.stringify({
-      app_key: "7i1exrcwkgpzm4tudn2of3q0vj5bs8ah",
-      app_secret: "092bca6740756d7aa5aa6177338f60def7d1d271",
-      access_token: "d145e7795b322cf394ec154e43f5f3969881ff8a",
+      app_key: "2syov4bft73azp1c9q6h0jnemw58dikg",
+      app_secret: "726cd371fc246140ffa9e21c71a3510e4c7dd5cb",
+      access_token: "3ed9af557f50c44359425b93fdb6335f6297b6f7",
       orderinfo: {
         OrderInfo: {
           Restaurant: {
             details: {
-              res_name: "local Heros",
+              res_name: "Local Heros Food Pvt Ltd",
               address:
-                "3rd Floor, 559,9th A Main Rd, 1st Stage, Indiranagar, Bengaluru, Karnataka 560008",
+                "40-533, 3rd Main Rd, Koramangala 8th Block, Koramangala, Bengaluru, Karnataka 560095",
               contact_information: "9164640969",
-              restID: "0k1h7zgq",
+              restID: "r0ix95s4",
             },
           },
           Customer: {
@@ -190,40 +193,41 @@ const createOrderAPI = async (order_items) => {
               payment_type: "CARD",
               table_no: "",
               no_of_persons: "1",
+              
               discount_total: "",
-              tax_total: "18",
-              discount_type: "",
+              tax_total: tax_total ,
+              discount_type: "F",
               total: order_items.totalAmount.toString(),
               created_on: moment().format("YYYY-MM-DD HH:mm:ss"),
-              enable_delivery: 0,
+              enable_delivery: 1,
               min_prep_time: 30,
               callback_url: "https://localheros.in/",
-              collect_cash: order_items.totalAmount.toString(),
+              collect_cash: "0",
             },
           },
           OrderItem: {
             details: productsWithDetails,
           },
-          // Tax: {
-          //   details: [
-          //     {
-          //       id: "11213",
-          //       title: "CGST",
-          //       type: "P",
-          //       price: "2.5",
-          //       tax: "5.9",
-          //       restaurant_liable_amt: "0.00",
-          //     },
-          //     {
-          //       id: "20375",
-          //       title: "SGST",
-          //       type: "P",
-          //       price: "2.5",
-          //       tax: "5.9",
-          //       restaurant_liable_amt: "0.00",
-          //     },
-          //   ],
-          // },
+          Tax: {
+            details: [
+              {
+                id: "11213",
+                title: "CGST",
+                type: "P",
+                price: "2.5",
+                tax:  (((order_items.totalAmount / 1.05) * 2.5) / 100).toFixed(2),
+                restaurant_liable_amt: (((order_items.totalAmount / 1.05) * 2.5) / 100).toFixed(2),
+              },
+              {
+                id: "20375",
+                title: "SGST",
+                type: "P",
+                price: "2.5",
+                tax:  (((order_items.totalAmount / 1.05) * 2.5) / 100).toFixed(2),
+                restaurant_liable_amt: (((order_items.totalAmount / 1.05) * 2.5) / 100).toFixed(2),
+              },
+            ],
+          },
           // Discount: {
           //   details: [
           //     {
@@ -245,7 +249,7 @@ const createOrderAPI = async (order_items) => {
     const config = {
       method: "post",
       maxBodyLength: Infinity,
-      url: "https://qle1yy2ydc.execute-api.ap-southeast-1.amazonaws.com/V1/save_order",
+      url: "https://pponlineordercb.petpooja.com/save_order",
       headers: {
         "Content-Type": "application/json",
       },
