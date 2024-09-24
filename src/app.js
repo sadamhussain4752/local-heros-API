@@ -100,6 +100,8 @@ app.use("/api/header", BannerRoutes);
 app.use("/api/staff", EmployeeRoutes);
 app.use("/api/faq", FAQRoutes);
 
+
+
 app.post("/local-heros-submit-form", (req, res) => {
   const { name, email, pinCode, phone, productName, quantity, message } = req.body;
 
@@ -137,55 +139,14 @@ app.post("/local-heros-submit-form", (req, res) => {
   const mailOptions = {
     from: `${subjects} <noreply@localheros.in>`,
     to: [
-      "info@imsolutions.mobi",
+      // "info@imsolutions.mobi",
       // "shashi@localheros.in",
       // "sadamdon4752@gmail.com"
-     // "sadam@imsolutions.mobi"
+     "sadam@imsolutions.mobi"
     ],
     subject: subjects,
     html: emailContent,
   };
-  const AWS_SES = new AWS.SES(SES_CONFIG);
-
-  const sendEmail = async (recipientEmail) => {
-    let params = {
-      Source: "noreply@localheros.in", // Replace YOUR_CUSTOM_DOMAIN with your custom domain verified in SES
-      Destination: {
-        ToAddresses: [
-          //"info@imsolutions.mobi",
-          "ops@localheros.in",
-          "shashi@localheros.in",
-          //"sadamdon4752@gmail.com"
-          //"sadam@imsolutions.mobi"
-        ],
-      },
-      ReplyToAddresses: [],
-      Message: {
-        Body: {
-          Html: {
-            Charset: 'UTF-8',
-            Data: `${emailContent}`,
-          },
-
-        },
-        Subject: {
-          Charset: 'UTF-8',
-          Data: `${subjects}`,
-        }
-      },
-    };
-
-    try {
-      const emailres = await AWS_SES.sendEmail(params).promise();
-      console.log('Email has been sent!', emailres);
-      res.status(200).send("Email sent successfully");
-    } catch (error) {
-      console.error(error);
-      res.status(500).send("Internal Server Error");
-    }
-  }
-
-  sendEmail(mailOptions.to);
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
