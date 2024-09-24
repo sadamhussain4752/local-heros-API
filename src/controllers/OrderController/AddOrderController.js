@@ -98,12 +98,12 @@ const createOrderAPI = async (order_items) => {
   try {
     const address = await Address.findById(order_items.addressId);
     const userIdName = await User.findById(order_items.userId);
-    console.log('====================================');
-    console.log(order_items,"order_items");
-    console.log('====================================');
+    console.log("====================================");
+    console.log(order_items, "order_items");
+    console.log("====================================");
     const productPromises = order_items.quantity.map(async (productObj) => {
       const product = await Product.findById(productObj.productId);
-    
+
       return {
         id: product.itemid,
         name: product.itemObject.itemname,
@@ -117,14 +117,14 @@ const createOrderAPI = async (order_items) => {
           {
             id: "20375",
             name: "SGST",
-            amount: (((product.amount / 1.05) * 2.5) / 100).toFixed(2)
+            amount: (((product.amount / 1.05) * 2.5) / 100).toFixed(2),
           },
         ],
         item_discount: "",
-        price: product.amount.toString() ,
+        price: product.amount.toString(),
         final_price: product.amount.toString(),
         quantity: productObj.quantity,
-        description:"",
+        description: "",
         variation_name: "",
         variation_id: "",
         AddonItem: {
@@ -136,9 +136,8 @@ const createOrderAPI = async (order_items) => {
     const productsWithDetails = await Promise.all(productPromises);
     const tax_base = order_items.totalAmount / 1.05; // Base amount without tax
     const tax_rate = 2.5 / 100; // Tax rate percentage
-    
-    const tax_total = ((tax_base * tax_rate) * 2).toFixed(2); // Calculate tax and round to 2 decimal places
-    const axios = require("axios");
+
+    const tax_total = (tax_base * tax_rate * 2).toFixed(2); // Calculate tax and round to 2 decimal places
     const datas = JSON.stringify({
       app_key: "2syov4bft73azp1c9q6h0jnemw58dikg",
       app_secret: "726cd371fc246140ffa9e21c71a3510e4c7dd5cb",
@@ -193,9 +192,9 @@ const createOrderAPI = async (order_items) => {
               payment_type: "CARD",
               table_no: "",
               no_of_persons: "1",
-              
+
               discount_total: "",
-              tax_total: tax_total ,
+              tax_total: tax_total,
               discount_type: "F",
               total: order_items.totalAmount.toString(),
               created_on: moment().format("YYYY-MM-DD HH:mm:ss"),
@@ -215,16 +214,26 @@ const createOrderAPI = async (order_items) => {
                 title: "CGST",
                 type: "P",
                 price: "2.5",
-                tax:  (((order_items.totalAmount / 1.05) * 2.5) / 100).toFixed(2),
-                restaurant_liable_amt: (((order_items.totalAmount / 1.05) * 2.5) / 100).toFixed(2),
+                tax: (((order_items.totalAmount / 1.05) * 2.5) / 100).toFixed(
+                  2
+                ),
+                restaurant_liable_amt: (
+                  ((order_items.totalAmount / 1.05) * 2.5) /
+                  100
+                ).toFixed(2),
               },
               {
                 id: "20375",
                 title: "SGST",
                 type: "P",
                 price: "2.5",
-                tax:  (((order_items.totalAmount / 1.05) * 2.5) / 100).toFixed(2),
-                restaurant_liable_amt: (((order_items.totalAmount / 1.05) * 2.5) / 100).toFixed(2),
+                tax: (((order_items.totalAmount / 1.05) * 2.5) / 100).toFixed(
+                  2
+                ),
+                restaurant_liable_amt: (
+                  ((order_items.totalAmount / 1.05) * 2.5) /
+                  100
+                ).toFixed(2),
               },
             ],
           },
@@ -243,9 +252,9 @@ const createOrderAPI = async (order_items) => {
         device_type: "Web",
       },
     });
-   console.log('====================================');
-   console.log(datas,"datas");
-   console.log('====================================');
+    console.log("====================================");
+    console.log(datas, "datas");
+    console.log("====================================");
     const config = {
       method: "post",
       maxBodyLength: Infinity,
@@ -258,9 +267,9 @@ const createOrderAPI = async (order_items) => {
 
     const response = await axios.request(config);
     console.log(JSON.stringify(response.data));
-     return JSON.stringify(response.data)
+    return JSON.stringify(response.data);
   } catch (error) {
-    return "Error creating order:", error
+    return "Error creating order:", error;
     console.error("Error creating order:", error);
   }
 };
@@ -435,6 +444,39 @@ const CancelTrackOrder = async (trackId) => {
   }
 };
 
+const CancelTrackOrders = async (trackId) => {
+  let datas = JSON.stringify({
+    app_key: "2syov4bft73azp1c9q6h0jnemw58dikg",
+    app_secret: "726cd371fc246140ffa9e21c71a3510e4c7dd5cb",
+    access_token: "3ed9af557f50c44359425b93fdb6335f6297b6f7",
+    restID: "r0ix95s4",
+    orderID: "",
+    clientorderID: trackId,
+    cancelReason: "Please cancel my order.",
+    status: "-1",
+  });
+
+  let config = {
+    method: "post",
+    maxBodyLength: Infinity,
+    url: "https://pponlineordercb.petpooja.com/update_order_status",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: datas,
+  };
+
+  axios
+    .request(config)
+    .then((response) => {
+      console.log(JSON.stringify(response.data));
+      return JSON.stringify(response.data)
+    })
+    .catch((error) => {
+      console.log(error);
+      return error
+    });
+};
 exports.getAllOrder = async (req, res) => {
   try {
     const userId = req.params.id;
@@ -554,6 +596,11 @@ exports.updateOrderById = async (req, res) => {
     if (status) {
       existingOrder.paymentStatus = status; // Assuming 'status' is the field you want to update
       const messageBody = `Order has been Done: ${orderId.substring(0, 6)}`;
+      if (status === "Cancelled") {
+        let track_order_list = await CancelTrackOrders(orderId);
+        console.log(track_order_list.orderID,'track_order_list');
+        existingOrder.exta_message = "Order status updated successfully"; // Assuming 'status' is the field you want to update
+      }
 
       // Send SMS
       await sendVerificationSMS("9629283625", orderId);
@@ -842,13 +889,11 @@ exports.CancelOrderById = async (req, res) => {
     // Remove the Order from the database
     let track_order_list = await CancelTrackOrder(existingOrder.track_Order_id);
 
-    res
-      .status(200)
-      .json({
-        success: true,
-        message: "Cancel Order successfully",
-        responce_message: track_order_list,
-      });
+    res.status(200).json({
+      success: true,
+      message: "Cancel Order successfully",
+      responce_message: track_order_list,
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, error: "Server error" });
