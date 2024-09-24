@@ -23,7 +23,7 @@ const orderRoutes = require("./routes/OrderRoutes/orderRoutes");
 const BannerRoutes = require("./routes/BannerRouters/BannerRoutes");
 const EmployeeRoutes = require("./routes/AddEmployess/addEmployeesRoutes")
 const FAQRoutes = require("./routes/AddFaqRoutes/faqRoutes")
-const ngrok = require('ngrok');  // For exposing local server publicly
+// For exposing local server publicly
 
 // const files = fs.readFileSync('./62ACF8182B9E5DCCC1E610CE4B2C525F.txt') 
 
