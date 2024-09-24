@@ -7,6 +7,7 @@ const nodemailer = require("nodemailer");
 const AWS = require('aws-sdk');
 require('aws-sdk/lib/maintenance_mode_message').suppress = true;
 require('dotenv').config();
+const axios = require('axios');
 
 const cors = require("cors"); // Import cors middleware
 const bodyParser = require("body-parser");
@@ -187,6 +188,36 @@ app.post("/local-heros-submit-form", (req, res) => {
     }
   });
 });
+
+let data = JSON.stringify({
+  "app_key": "2syov4bft73azp1c9q6h0jnemw58dikg",
+  "app_secret": "726cd371fc246140ffa9e21c71a3510e4c7dd5cb",
+  "access_token": "3ed9af557f50c44359425b93fdb6335f6297b6f7",
+  "restID": "r0ix95s4",
+  "orderID": "",
+  "clientorderID": "66f2788e5275af7e8ad90052",
+  "cancelReason": "Please cancel my order.",
+  "status": "-1"
+});
+
+let config = {
+  method: 'post',
+  maxBodyLength: Infinity,
+  url: 'https://pponlineordercb.petpooja.com/update_order_status',
+  headers: { 
+    'Content-Type': 'application/json'
+  },
+  data : data
+};
+
+axios.request(config)
+.then((response) => {
+  console.log(JSON.stringify(response.data));
+})
+.catch((error) => {
+  console.log(error);
+});
+
 
 
 
