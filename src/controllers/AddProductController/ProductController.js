@@ -230,7 +230,8 @@ exports.updateProductById = async (req, res) => {
         subname,
         exta_add_item,
         is_type,
-        itemid
+        itemid,
+        options
       } = req.body;
   
       // Check if the Product exists
@@ -264,6 +265,8 @@ exports.updateProductById = async (req, res) => {
       existingProduct.exta_add_item = exta_add_item;
       existingProduct.is_type = is_type;
       existingProduct.itemid = itemid;
+      existingProduct.options = options;
+
       // Save the updated Product
       const updatedProduct = await existingProduct.save();
   

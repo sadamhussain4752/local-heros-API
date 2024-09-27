@@ -517,7 +517,7 @@ exports.getAllOrder = async (req, res) => {
     // Wait for all promises to resolve
     const ordersWithDetails = await Promise.all(orderPromises);
 
-    res.status(200).json({ success: true, orders: ordersWithDetails });
+    res.status(200).json({ success: true, orders: ordersWithDetails.reverse() });
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, error: "Server error" });

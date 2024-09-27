@@ -1,1334 +1,1073 @@
 [
-    {
-      "itemid": "10543234",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77832",
-      "item_ordertype": "0,1",
-      "item_packingcharges": "0",
-      "itemallowaddon": "0",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [],
-      "is_recommend": "0",
-      "itemname": "PBM - Classic Mysore Biryani - Web",
-      "item_attributeid": "1",
-      "itemdescription": "Mysore style biryani is truly a delight to your taste buds with rich flavours and yet subtle. It's time to experience this wonderful curation handcrafted by our biryani heroes with premium ingredients like cold pressed oil, 18 months aged rice, organic vegetables, freshly pound secret masala and of course the traditional style of cooking.",
-      "minimumpreparationtime": "",
-      "price": "1799.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
+  {
+    "itemid": "1274297307",
+    "itemallowvariation": "0",
+    "itemrank": "1",
+    "item_categoryid": "5363366",
+    "item_ordertype": "1,2,3",
+    "item_packingcharges": "15",
+    "itemallowaddon": "1",
+    "itemaddonbasedon": "0",
+    "item_favorite": "0",
+    "ignore_taxes": "0",
+    "ignore_discounts": "0",
+    "in_stock": "2",
+    "cuisine": [
+      
+    ],
+    "variation_groupname": "",
+    "variation": [
+      
+    ],
+    "addon": [
+      {
+        "addon_group_id": "1141468",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "1"
+      },
+      {
+        "addon_group_id": "1141473",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "4"
+      }
+    ],
+    "is_recommend": "1",
+    "itemname": "Mushroom Biryani",
+    "item_attributeid": "1",
+    "itemdescription": "A Flavourful biryani originating from Tamil Nadu is known for its bold spicy flavour, rich masala blend of various spices and its uses of Seeraga Samba Rice. At Local Heros we make this biryani tastier and healthier with the finest premium ingredients like cold-pressed groundnut oil, 18-month aged Seeraga Samba rice, organic vegetables, freshly pounded masala and of course traditional style of cooking.",
+    "minimumpreparationtime": "25",
+    "price": "199.00",
+    "active": "1",
+    "item_image_url": "https://online-logo.s3.ap-southeast-1.amazonaws.com/homewebsite/326219/thumb_1726840873_2024_09_20_19_31_07_Chettinad.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWOP3TNH4KGK54OGP%2F20240924%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240924T055417Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=8d2f8bfe49ae049e0dea2e7c17384c1f690f6dbcec25ba03eb9a0837cffb05c9",
+    "item_tax": "",
+    "tax_inclusive": false,
+    "gst_type": "services"
+  },
+  {
+    "itemid": "1274489187",
+    "itemallowvariation": "0",
+    "itemrank": "1",
+    "item_categoryid": "5363366",
+    "item_ordertype": "1,2,3",
+    "item_packingcharges": "0",
+    "itemallowaddon": "0",
+    "itemaddonbasedon": "0",
+    "item_favorite": "0",
+    "ignore_taxes": "0",
+    "ignore_discounts": "0",
+    "in_stock": "2",
+    "cuisine": [
+      
+    ],
+    "variation_groupname": "",
+    "variation": [
+      
+    ],
+    "addon": [
+      
+    ],
+    "is_recommend": "0",
+    "itemname": "Paneer 65 Biryani-WEB",
+    "item_attributeid": "1",
+    "itemdescription": "Savour the earthy richness of our Mushroom Biryani. This biryani offers a delightful contrast of tastes and textures. A perfect choice for those seeking a meat-free option without compromising on flavour. Made with premium ingredients like cold-pressed oil, 18 months aged rice, organic vegetables, freshly pounded secret masala and of course the traditional style of cooking.",
+    "minimumpreparationtime": "",
+    "price": "180.00",
+    "active": "1",
+    "item_image_url": "",
+    "item_tax": "",
+    "tax_inclusive": false,
+    "gst_type": "services"
+  },
+  {
+    "itemid": "1274489126",
+    "itemallowvariation": "0",
+    "itemrank": "1",
+    "item_categoryid": "5363366",
+    "item_ordertype": "1,2,3",
+    "item_packingcharges": "0",
+    "itemallowaddon": "0",
+    "itemaddonbasedon": "0",
+    "item_favorite": "0",
+    "ignore_taxes": "0",
+    "ignore_discounts": "0",
+    "in_stock": "2",
+    "cuisine": [
+      
+    ],
+    "variation_groupname": "",
+    "variation": [
+      
+    ],
+    "addon": [
+      
+    ],
+    "is_recommend": "0",
+    "itemname": "Aloo 65 Biryani",
+    "item_attributeid": "1",
+    "itemdescription": "Menu - Revised Menu - Revised 100% 10 P14 This unique dish combines the irresistible crunch of Aloo 65 with the aromatic essence of our biryani. Crafted with premium ingredients like cold-pressed oil, 18-month aged rice, organic vegetables, freshly ground secret masala and traditional style of cooking. \t This unique dish combines the irresistible crunch of Aloo 65 with the aromatic essence of our biryani. Crafted with premium ingredients like cold-pressed oil, 18-month aged rice, organic vegetables, freshly ground secret masala and traditional style of cooking. Turn on screen reader support To enable screen reader support, press ⌘+Option+Z To learn about keyboard shortcuts, press ⌘slashsadam hussain has joined the document.",
+    "minimumpreparationtime": "",
+    "price": "180.00",
+    "active": "1",
+    "item_image_url": "",
+    "item_tax": "",
+    "tax_inclusive": false,
+    "gst_type": "services"
+  },
+  {
+    "itemid": "141004071",
+    "itemallowvariation": "0",
+    "itemrank": "1",
+    "item_categoryid": "5363370",
+    "item_ordertype": "1,2,3",
+    "item_packingcharges": "90",
+    "itemallowaddon": "1",
+    "itemaddonbasedon": "0",
+    "item_favorite": "0",
+    "ignore_taxes": "0",
+    "ignore_discounts": "0",
+    "in_stock": "2",
+    "cuisine": [
+      "Combo",
+      "Meals"
+    ],
+    "variation_groupname": "",
+    "variation": [
+      
+    ],
+    "addon": [
+      {
+        "addon_group_id": "1141473",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "4"
+      },
+      {
+        "addon_group_id": "1144102",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "1"
+      }
+    ],
+    "is_recommend": "0",
+    "itemname": "Classic Mysore - Party Biryani Meal",
+    "item_attributeid": "2",
+    "itemdescription": "No party can be completed without biryani and Kababs! Serves 8 - 10 people Make your party time more delightful with our irresistible range of biryani’s and Kababs. Choose from our Classic,Epic, 65 Boneless or Hyderabadi biryani and we will pack it up with a large box of Kababs. Deal: - Chicken Biryani Rice (3 Kgs cooked rice ) -Chicken Biryani meat ( 30 Pieces ) -Kabab ( 32 Pieces ) -Made to Order",
+    "minimumpreparationtime": "55",
+    "price": "1799.00",
+    "active": "1",
+    "item_image_url": "https://online-logo.s3.ap-southeast-1.amazonaws.com/homewebsite/326219/thumb_2024_05_20_19_08_33_Party_B_Meal.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWOP3TNH4KGK54OGP%2F20240924%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240924T055417Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=e3a7e29273c9a606e31dde07d7c1ec358f61af94ed5c8710f6299e6ec0c8bc2f",
+    "item_tax": "",
+    "tax_inclusive": false,
+    "gst_type": "goods"
+  },
+  {
+    "itemid": "141004072",
+    "itemallowvariation": "0",
+    "itemrank": "1",
+    "item_categoryid": "5363370",
+    "item_ordertype": "1,2,3",
+    "item_packingcharges": "90",
+    "itemallowaddon": "1",
+    "itemaddonbasedon": "0",
+    "item_favorite": "0",
+    "ignore_taxes": "0",
+    "ignore_discounts": "0",
+    "in_stock": "2",
+    "cuisine": [
+      "Combo",
+      "Meals"
+    ],
+    "variation_groupname": "",
+    "variation": [
+      
+    ],
+    "addon": [
+      {
+        "addon_group_id": "1141473",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "4"
+      },
+      {
+        "addon_group_id": "1144102",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "1"
+      }
+    ],
+    "is_recommend": "0",
+    "itemname": "Epic Bangalore - Party Biryani Meal",
+    "item_attributeid": "2",
+    "itemdescription": "No party can be completed without biryani and Kababs! Serves 8 - 10 people Make your party time more delightful with our irresistible range of biryani’s and Kababs. Choose from our Classic,Epic, 65 Boneless or Hyderabadi biryani and we will pack it up with a large box of Kababs. Deal: - Chicken Biryani Rice (3 Kgs cooked rice ) -Chicken Biryani meat ( 30 Pieces ) -Kabab ( 32 Pieces ) -Made to Order",
+    "minimumpreparationtime": "55",
+    "price": "1799.00",
+    "active": "1",
+    "item_image_url": "https://online-logo.s3.ap-southeast-1.amazonaws.com/homewebsite/326219/thumb_1718071779_2024_06_11_07_39_26_DSC00188.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWOP3TNH4KGK54OGP%2F20240924%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240924T055417Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=47390ac0a6710239265e2b6da88208c562a0c06c522c5466eb05ada9f6122e4c",
+    "item_tax": "",
+    "tax_inclusive": false,
+    "gst_type": "goods"
+  },
+  {
+    "itemid": "141004073",
+    "itemallowvariation": "0",
+    "itemrank": "1",
+    "item_categoryid": "5363370",
+    "item_ordertype": "1,2,3",
+    "item_packingcharges": "90",
+    "itemallowaddon": "1",
+    "itemaddonbasedon": "0",
+    "item_favorite": "0",
+    "ignore_taxes": "0",
+    "ignore_discounts": "0",
+    "in_stock": "2",
+    "cuisine": [
+      "Combo",
+      "Meals"
+    ],
+    "variation_groupname": "",
+    "variation": [
+      
+    ],
+    "addon": [
+      {
+        "addon_group_id": "1141473",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "4"
+      },
+      {
+        "addon_group_id": "1144102",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "1"
+      }
+    ],
+    "is_recommend": "0",
+    "itemname": "65 Boneless - Party Biryani Meal",
+    "item_attributeid": "2",
+    "itemdescription": "No party can be completed without biryani and Kababs! Serves 8 - 10 people Make your party time more delightful with our irresistible range of biryani’s and Kababs. Choose from our Classic,Epic, 65 Boneless or Hyderabadi biryani and we will pack it up with a large box of Kababs. Deal: - Chicken Biryani Rice (3 Kgs cooked rice ) -Chicken Biryani meat ( 30 Pieces ) -Kabab ( 32 Pieces ) -Made to Order",
+    "minimumpreparationtime": "55",
+    "price": "1799.00",
+    "active": "1",
+    "item_image_url": "https://online-logo.s3.ap-southeast-1.amazonaws.com/homewebsite/326219/thumb_1718071867_2024_06_11_07_41_03_DSC00337.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWOP3TNH4KGK54OGP%2F20240924%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240924T055417Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=e422a164bea13520b359d2712eb5a3405e19630ca8262e86db232f4cfe3a4378",
+    "item_tax": "",
+    "tax_inclusive": false,
+    "gst_type": "goods"
+  },
+  {
+    "itemid": "1273391339",
+    "itemallowvariation": "0",
+    "itemrank": "1",
+    "item_categoryid": "5363370",
+    "item_ordertype": "1,2,3",
+    "item_packingcharges": "90",
+    "itemallowaddon": "1",
+    "itemaddonbasedon": "0",
+    "item_favorite": "0",
+    "ignore_taxes": "0",
+    "ignore_discounts": "0",
+    "in_stock": "2",
+    "cuisine": [
+      
+    ],
+    "variation_groupname": "",
+    "variation": [
+      
+    ],
+    "addon": [
+      {
+        "addon_group_id": "1141473",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "4"
+      },
+      {
+        "addon_group_id": "1144102",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "1"
+      }
+    ],
+    "is_recommend": "0",
+    "itemname": "Hyderabadi - Party Biyani Meal",
+    "item_attributeid": "2",
+    "itemdescription": "No party can be completed without biryani and Kababs! Serves 8 - 10 people Make your party time more delightful with our irresistible range of biryani’s and Kababs. Choose from our Classic,Epic, 65 Boneless or Hyderabadi biryani and we will pack it up with a large box of Kababs. Deal: - Chicken Biryani Rice (3 Kgs cooked rice ) -Chicken Biryani meat ( 30 Pieces ) -Kabab ( 32 Pieces ) -Made to Order",
+    "minimumpreparationtime": "60",
+    "price": "1799.00",
+    "active": "1",
+    "item_image_url": "https://online-logo.s3.ap-southeast-1.amazonaws.com/homewebsite/326219/thumb_1723957284_2024_08_18_10_31_19_Asset_1_300x.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWOP3TNH4KGK54OGP%2F20240924%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240924T055417Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=dbc28416b122876eb237fb2c79a4e88ab180378ef1e14cae598dd6fab7f3f979",
+    "item_tax": "",
+    "tax_inclusive": false,
+    "gst_type": "services"
+  },
+  {
+    "itemid": "141004068",
+    "itemallowvariation": "0",
+    "itemrank": "1",
+    "item_categoryid": "5363369",
+    "item_ordertype": "1,2,3",
+    "item_packingcharges": "60",
+    "itemallowaddon": "1",
+    "itemaddonbasedon": "0",
+    "item_favorite": "0",
+    "ignore_taxes": "0",
+    "ignore_discounts": "0",
+    "in_stock": "2",
+    "cuisine": [
+      "Combo",
+      "South Indian"
+    ],
+    "variation_groupname": "",
+    "variation": [
+      
+    ],
+    "addon": [
+      {
+        "addon_group_id": "1141470",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "1"
+      },
+      {
+        "addon_group_id": "1141473",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "4"
+      }
+    ],
+    "is_recommend": "0",
+    "itemname": "Classic Mysore - Family Biryani Meal",
+    "item_attributeid": "2",
+    "itemdescription": "A family that eats together stays together! Serves 4 - 5 People Enjoy your family time with our irresistible range of biryani and kababs. Choose from our Classic,Epic, 65 Boneless or Hyderabadi biryani and we will pack it up with a box of Kababs. Deal :- - Chicken Biryani rice ( 1.5 Kgs Cooked rice ) - Chicken Biryani meat ( 15 Pieces ) -Chicken Kabab ( 15 Pieces ) -Made to Order",
+    "minimumpreparationtime": "45",
+    "price": "999.00",
+    "active": "1",
+    "item_image_url": "https://online-logo.s3.ap-southeast-1.amazonaws.com/homewebsite/326219/thumb_2024_05_20_19_06_34_Family_B_Meal.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWOP3TNH4KGK54OGP%2F20240924%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240924T055417Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88bc70ddd77c1c5151ffe6cceff7e615fe49157bee1bb2284f0ffb2b6c9b61b6",
+    "item_tax": "",
+    "tax_inclusive": false,
+    "gst_type": "goods"
+  },
+  {
+    "itemid": "141004069",
+    "itemallowvariation": "0",
+    "itemrank": "1",
+    "item_categoryid": "5363369",
+    "item_ordertype": "1,2,3",
+    "item_packingcharges": "60",
+    "itemallowaddon": "1",
+    "itemaddonbasedon": "0",
+    "item_favorite": "0",
+    "ignore_taxes": "0",
+    "ignore_discounts": "0",
+    "in_stock": "2",
+    "cuisine": [
+      "Combo",
+      "Meals"
+    ],
+    "variation_groupname": "",
+    "variation": [
+      
+    ],
+    "addon": [
+      {
+        "addon_group_id": "1141470",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "1"
+      },
+      {
+        "addon_group_id": "1141473",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "4"
+      }
+    ],
+    "is_recommend": "0",
+    "itemname": "Epic Bangalore - Family Biryani Meal",
+    "item_attributeid": "2",
+    "itemdescription": "A family that eats together stays together! Serves 4 - 5 People Enjoy your family time with our irresistible range of biryani and kababs. Choose from our Classic,Epic, 65 Boneless or Hyderabadi biryani and we will pack it up with a box of Kababs. Deal :- - Chicken Biryani rice ( 1.5 Kgs Cooked rice ) - Chicken Biryani meat ( 15 Pieces ) -Chicken Kabab ( 15 Pieces ) -Made to Order",
+    "minimumpreparationtime": "45",
+    "price": "999.00",
+    "active": "1",
+    "item_image_url": "https://online-logo.s3.ap-southeast-1.amazonaws.com/homewebsite/326219/thumb_1718071626_2024_06_11_07_36_55_DSC00176.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWOP3TNH4KGK54OGP%2F20240924%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240924T055417Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=df39e20bd216826dd4933990bd36464fa788af7ffce7be1281ba8848c299b5bc",
+    "item_tax": "",
+    "tax_inclusive": false,
+    "gst_type": "goods"
+  },
+  {
+    "itemid": "141004070",
+    "itemallowvariation": "0",
+    "itemrank": "1",
+    "item_categoryid": "5363369",
+    "item_ordertype": "1,2,3",
+    "item_packingcharges": "60",
+    "itemallowaddon": "1",
+    "itemaddonbasedon": "0",
+    "item_favorite": "0",
+    "ignore_taxes": "0",
+    "ignore_discounts": "0",
+    "in_stock": "2",
+    "cuisine": [
+      "Combo",
+      "Meals"
+    ],
+    "variation_groupname": "",
+    "variation": [
+      
+    ],
+    "addon": [
+      {
+        "addon_group_id": "1141470",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "1"
+      },
+      {
+        "addon_group_id": "1141473",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "4"
+      }
+    ],
+    "is_recommend": "0",
+    "itemname": "65 Boneless - Family Biryani Meal",
+    "item_attributeid": "2",
+    "itemdescription": "A family that eats together stays together! Serves 4 - 5 People Enjoy your family time with our irresistible range of biryani and kababs. Choose from our Classic,Epic, 65 Boneless or Hyderabadi biryani and we will pack it up with a box of Kababs. Deal :- - Chicken Biryani rice ( 1.5 Kgs Cooked rice ) - Chicken Biryani meat ( 15 Pieces ) -Chicken Kabab ( 15 Pieces ) -Made to Order",
+    "minimumpreparationtime": "45",
+    "price": "999.00",
+    "active": "1",
+    "item_image_url": "https://online-logo.s3.ap-southeast-1.amazonaws.com/homewebsite/326219/thumb_1719575991_2024_06_28_17_29_47_bneless_family_pack.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWOP3TNH4KGK54OGP%2F20240924%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240924T055417Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=a9f1a21b95d5deb210f1e8383cceb93b4f80f4250b8283396c63bb223825a7fa",
+    "item_tax": "",
+    "tax_inclusive": false,
+    "gst_type": "goods"
+  },
+  {
+    "itemid": "1273391338",
+    "itemallowvariation": "0",
+    "itemrank": "1",
+    "item_categoryid": "5363369",
+    "item_ordertype": "1,2,3",
+    "item_packingcharges": "60",
+    "itemallowaddon": "1",
+    "itemaddonbasedon": "0",
+    "item_favorite": "0",
+    "ignore_taxes": "0",
+    "ignore_discounts": "0",
+    "in_stock": "2",
+    "cuisine": [
+      
+    ],
+    "variation_groupname": "",
+    "variation": [
+      
+    ],
+    "addon": [
+      {
+        "addon_group_id": "1141470",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "1"
+      },
+      {
+        "addon_group_id": "1141473",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "4"
+      }
+    ],
+    "is_recommend": "0",
+    "itemname": "Hyderabadi Biryani Family Pack",
+    "item_attributeid": "2",
+    "itemdescription": "A family that eats together stays together! Serves 4 - 5 People Enjoy your family time with our irresistible range of biryani and kababs. Choose from our Classic,Epic, 65 Boneless or Hyderabadi biryani and we will pack it up with a box of Kababs. Deal :- - Chicken Biryani rice ( 1.5 Kgs Cooked rice ) - Chicken Biryani meat ( 15 Pieces ) -Chicken Kabab ( 15 Pieces ) -Made to Order",
+    "minimumpreparationtime": "50",
+    "price": "999.00",
+    "active": "1",
+    "item_image_url": "https://online-logo.s3.ap-southeast-1.amazonaws.com/homewebsite/326219/thumb_1723956862_2024_08_18_10_24_15_Asset_1_300x.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWOP3TNH4KGK54OGP%2F20240924%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240924T055417Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=2ad4f0b08bddc041bf2fa20051deb3f648cf6d89c41ae4d07939589b299804a0",
+    "item_tax": "",
+    "tax_inclusive": false,
+    "gst_type": "goods"
+  },
+  {
+    "itemid": "141004067",
+    "itemallowvariation": "0",
+    "itemrank": "1",
+    "item_categoryid": "5363368",
+    "item_ordertype": "1,2,3",
+    "item_packingcharges": "15",
+    "itemallowaddon": "0",
+    "itemaddonbasedon": "0",
+    "item_favorite": "0",
+    "ignore_taxes": "0",
+    "ignore_discounts": "0",
+    "in_stock": "2",
+    "cuisine": [
+      "Indian"
+    ],
+    "variation_groupname": "",
+    "variation": [
+      
+    ],
+    "addon": [
+      
+    ],
+    "is_recommend": "0",
+    "itemname": "1 Kg - 32 Piece",
+    "item_attributeid": "2",
+    "itemdescription": "Deep-fried to juicy perfection! Our Indian style kabab is always an evergreen choice of kabab. Enjoy them as an appetiser,or main course with rice or greens or pair them with drinks or your favourite Biriyaani - these versatile Kababs are a delicious addition to any meal.",
+    "minimumpreparationtime": "15",
+    "price": "599.00",
+    "active": "1",
+    "item_image_url": "https://online-logo.s3.ap-southeast-1.amazonaws.com/homewebsite/326219/thumb_2024_05_20_18_03_28_Juicy_Kababs_Dhamaka.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWOP3TNH4KGK54OGP%2F20240924%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240924T055417Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=f55385b45e2617a596e005f2ca9d511a7f12993f055bc9b1b7c46e43b9249064",
+    "item_tax": "",
+    "tax_inclusive": false,
+    "gst_type": "goods"
+  },
+  {
+    "itemid": "141004066",
+    "itemallowvariation": "0",
+    "itemrank": "1",
+    "item_categoryid": "5363368",
+    "item_ordertype": "1,2,3",
+    "item_packingcharges": "10",
+    "itemallowaddon": "0",
+    "itemaddonbasedon": "0",
+    "item_favorite": "0",
+    "ignore_taxes": "0",
+    "ignore_discounts": "0",
+    "in_stock": "2",
+    "cuisine": [
+      "Indian"
+    ],
+    "variation_groupname": "",
+    "variation": [
+      
+    ],
+    "addon": [
+      
+    ],
+    "is_recommend": "0",
+    "itemname": "500 Gms - 16 Piece",
+    "item_attributeid": "2",
+    "itemdescription": "Deep-fried to juicy perfection! Our Indian style kabab is always an evergreen choice of kabab. Enjoy them as an appetiser,or main course with rice or greens or pair them with drinks or",
+    "minimumpreparationtime": "10",
+    "price": "330.00",
+    "active": "1",
+    "item_image_url": "https://online-logo.s3.ap-southeast-1.amazonaws.com/homewebsite/326219/thumb_2024_05_20_18_00_52_Juicy_Kababs_Pataka.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWOP3TNH4KGK54OGP%2F20240924%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240924T055417Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=85aaab28cc0c37448c8d7ec3631039239d9cae739cef11bdfbab6074cc80968a",
+    "item_tax": "",
+    "tax_inclusive": false,
+    "gst_type": "goods"
+  },
+  {
+    "itemid": "141004063",
+    "itemallowvariation": "0",
+    "itemrank": "1",
+    "item_categoryid": "5363367",
+    "item_ordertype": "1,2,3",
+    "item_packingcharges": "15",
+    "itemallowaddon": "1",
+    "itemaddonbasedon": "0",
+    "item_favorite": "0",
+    "ignore_taxes": "0",
+    "ignore_discounts": "0",
+    "in_stock": "2",
+    "cuisine": [
+      "Biriyani",
+      "Combo"
+    ],
+    "variation_groupname": "",
+    "variation": [
+      
+    ],
+    "addon": [
+      {
+        "addon_group_id": "1141468",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "1"
+      },
+      {
+        "addon_group_id": "1141470",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "1"
+      },
+      {
+        "addon_group_id": "1141473",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "4"
+      }
+    ],
+    "is_recommend": "0",
+    "itemname": "Classic Mysore Biryani + Kabab",
+    "item_attributeid": "2",
+    "itemdescription": "Ditch the decision fatigue - we've got your complete feast covered! Choose your favourite Biriyaani, from our range of Cassic Mysore, Epic Bangalore, Hyderabadi or Chicken 65 Biryani and we will make it even more exciting by adding some Kababs to the box.",
+    "minimumpreparationtime": "25",
+    "price": "299.00",
+    "active": "1",
+    "item_image_url": "https://online-logo.s3.ap-southeast-1.amazonaws.com/homewebsite/326219/thumb_2024_05_20_18_59_58_Classic_Combo.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWOP3TNH4KGK54OGP%2F20240924%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240924T055417Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=8db1f51f6fddeb6c1363dccfcf23ee6431523ccc5507ebff2400bba22e8b27e5",
+    "item_tax": "",
+    "tax_inclusive": false,
+    "gst_type": "goods"
+  },
+  {
+    "itemid": "141487964",
+    "itemallowvariation": "0",
+    "itemrank": "1",
+    "item_categoryid": "5363367",
+    "item_ordertype": "1,2,3",
+    "item_packingcharges": "15",
+    "itemallowaddon": "1",
+    "itemaddonbasedon": "0",
+    "item_favorite": "0",
+    "ignore_taxes": "0",
+    "ignore_discounts": "0",
+    "in_stock": "2",
+    "cuisine": [
+      "Combo",
+      "South Indian"
+    ],
+    "variation_groupname": "",
+    "variation": [
+      
+    ],
+    "addon": [
+      {
+        "addon_group_id": "1141468",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "1"
+      },
+      {
+        "addon_group_id": "1141470",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "1"
+      },
+      {
+        "addon_group_id": "1141473",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "4"
+      }
+    ],
+    "is_recommend": "0",
+    "itemname": "Epic Bangalore Biryani+ Kabab",
+    "item_attributeid": "2",
+    "itemdescription": "Ditch the decision fatigue - we've got your complete feast covered! Choose your favourite Biriyaani, from our range of Cassic Mysore, Epic Bangalore, Hyderabadi or Chicken 65 Biryani and we will make it even more exciting by adding some Kababs to the box.",
+    "minimumpreparationtime": "25",
+    "price": "299.00",
+    "active": "1",
+    "item_image_url": "https://online-logo.s3.ap-southeast-1.amazonaws.com/homewebsite/326219/thumb_1719575027_2024_06_28_17_13_36_bangalore_bb_combo.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWOP3TNH4KGK54OGP%2F20240924%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240924T055417Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=7990dcbe50df6d8d6dc63268db8fa8c4162c7b52adeedbeb5690fa1cef923ad8",
+    "item_tax": "",
+    "tax_inclusive": false,
+    "gst_type": "goods"
+  },
+  {
+    "itemid": "141004064",
+    "itemallowvariation": "0",
+    "itemrank": "1",
+    "item_categoryid": "5363367",
+    "item_ordertype": "1,2,3",
+    "item_packingcharges": "15",
+    "itemallowaddon": "1",
+    "itemaddonbasedon": "0",
+    "item_favorite": "0",
+    "ignore_taxes": "0",
+    "ignore_discounts": "0",
+    "in_stock": "2",
+    "cuisine": [
+      "Biriyani",
+      "Combo"
+    ],
+    "variation_groupname": "",
+    "variation": [
+      
+    ],
+    "addon": [
+      {
+        "addon_group_id": "1141468",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "1"
+      },
+      {
+        "addon_group_id": "1141470",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "1"
+      },
+      {
+        "addon_group_id": "1141473",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "4"
+      }
+    ],
+    "is_recommend": "0",
+    "itemname": "65 Boneless Biryani + Kabab",
+    "item_attributeid": "2",
+    "itemdescription": "Ditch the decision fatigue - we've got your complete feast covered! Choose your favourite Biriyaani, from our range of Cassic Mysore, Epic Bangalore, Hyderabadi or Chicken 65 Biryani and we will make it even more exciting by adding some Kababs to the box.",
+    "minimumpreparationtime": "25",
+    "price": "299.00",
+    "active": "1",
+    "item_image_url": "https://online-logo.s3.ap-southeast-1.amazonaws.com/homewebsite/326219/thumb_1719574696_2024_06_28_17_08_11_chicken_65_bbb_combo.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWOP3TNH4KGK54OGP%2F20240924%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240924T055417Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=1c86b3313fb21883b0542ba489dd3789a5a272349fb6ae60acd070f56b65508b",
+    "item_tax": "",
+    "tax_inclusive": false,
+    "gst_type": "goods"
+  },
+  {
+    "itemid": "1272633607",
+    "itemallowvariation": "0",
+    "itemrank": "1",
+    "item_categoryid": "5363366",
+    "item_ordertype": "",
+    "item_packingcharges": "15",
+    "itemallowaddon": "1",
+    "itemaddonbasedon": "0",
+    "item_favorite": "0",
+    "ignore_taxes": "0",
+    "ignore_discounts": "0",
+    "in_stock": "2",
+    "cuisine": [
+      
+    ],
+    "variation_groupname": "",
+    "variation": [
+      
+    ],
+    "addon": [
+      {
+        "addon_group_id": "1141468",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "1"
+      },
+      {
+        "addon_group_id": "1141470",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "1"
+      },
+      {
+        "addon_group_id": "1144102",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "1"
+      }
+    ],
+    "is_recommend": "0",
+    "itemname": "Hyderabadi Biryani",
+    "item_attributeid": "2",
+    "itemdescription": "Hailing from the opulent kitchens of the Nizams, this aromatic rice dish is a harmonious blend of fragrant basmati rice, cold-pressed oil, organic vegetables, freshly pound secret masala and of course the traditional style of cooking. Prepared with meticulous care by our Biryani Heros and slow-cooked to perfection, each mouthful transports you to the grandeur of the bygone era.",
+    "minimumpreparationtime": "30",
+    "price": "180.00",
+    "active": "1",
+    "item_image_url": "https://online-logo.s3.ap-southeast-1.amazonaws.com/homewebsite/326219/thumb_1726461100_2024_09_16_10_01_35_DSC00764.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWOP3TNH4KGK54OGP%2F20240924%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240924T055417Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=4ec5c5e3ac1d648196777cde4e0a68806431e74bc88548c702b384acc524b368",
+    "item_tax": "",
+    "tax_inclusive": false,
+    "gst_type": "goods"
+  },
+  {
+    "itemid": "141487962",
+    "itemallowvariation": "0",
+    "itemrank": "1",
+    "item_categoryid": "5363366",
+    "item_ordertype": "1,2,3",
+    "item_packingcharges": "15",
+    "itemallowaddon": "1",
+    "itemaddonbasedon": "0",
+    "item_favorite": "0",
+    "ignore_taxes": "0",
+    "ignore_discounts": "0",
+    "in_stock": "2",
+    "nutrition": {
+      "fiber": {
+        "unit": "g",
+        "amount": 0.77
+      },
+      "protien": {
+        "unit": "g",
+        "amount": 43.6
+      },
+      "calories": {
+        "unit": "kcal",
+        "amount": 682.35
+      },
+      "totalFat": {
+        "unit": "g",
+        "amount": 25.2
+      },
+      "foodAmount": {
+        "unit": "g",
+        "amount": 450
+      },
+      "servingInfo": "1to2people",
+      "carbohydrate": {
+        "unit": "g",
+        "amount": 69
+      }
     },
-    {
-      "itemid": "10543235",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77832",
-      "item_ordertype": "0,1",
-      "item_packingcharges": "0",
-      "itemallowaddon": "0",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [],
-      "is_recommend": "0",
-      "itemname": "PBM - Epic Bangalore Biryani - Web",
-      "item_attributeid": "1",
-      "itemdescription": "Mysore style biryani is truly a delight to your taste buds with rich flavours and yet subtle. It's time to experience this wonderful curation handcrafted by our biryani heroes with premium ingredients like cold pressed oil, 18 months aged rice, organic vegetables, freshly pound secret masala and of course the traditional style of cooking.",
-      "minimumpreparationtime": "",
-      "price": "1799.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
+    "cuisine": [
+      "Biriyani",
+      "South Indian"
+    ],
+    "variation_groupname": "",
+    "variation": [
+      
+    ],
+    "addon": [
+      {
+        "addon_group_id": "1141468",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "1"
+      },
+      {
+        "addon_group_id": "1141473",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "4"
+      }
+    ],
+    "is_recommend": "0",
+    "itemname": "65 Boneless Biryani",
+    "item_attributeid": "2",
+    "itemdescription": "Our Chicken 65 Boneless Biryani is a modern twist on the classic, perfect for busy lifestyles! This dum-cooked biryani features juicy, boneless \"special chicken\" nestled amidst fluffy seeraga samba rice with fragrant spices that will excite your taste buds. It's time to experience this wonderful curation handcrafted by our biryani heros with premium ingredients like cold pressed oil, organic vegetables, freshly pound secret masala and of course the traditional style of cooking.",
+    "minimumpreparationtime": "25",
+    "price": "180.00",
+    "active": "1",
+    "item_image_url": "https://online-logo.s3.ap-southeast-1.amazonaws.com/homewebsite/326219/thumb_1719574044_2024_06_28_16_57_20_chicken_65_bbb.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWOP3TNH4KGK54OGP%2F20240924%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240924T055417Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=c4be10c5838cf2cb85781f4da19776d038523429b282a2d5513253eef7d64d0f",
+    "item_tax": "",
+    "tax_inclusive": false,
+    "gst_type": "goods"
+  },
+  {
+    "itemid": "141487960",
+    "itemallowvariation": "0",
+    "itemrank": "1",
+    "item_categoryid": "5363366",
+    "item_ordertype": "1,2,3",
+    "item_packingcharges": "15",
+    "itemallowaddon": "1",
+    "itemaddonbasedon": "0",
+    "item_favorite": "0",
+    "ignore_taxes": "0",
+    "ignore_discounts": "0",
+    "in_stock": "2",
+    "nutrition": {
+      "fiber": {
+        "unit": "g",
+        "amount": 0.77
+      },
+      "protien": {
+        "unit": "g",
+        "amount": 43.6
+      },
+      "calories": {
+        "unit": "kcal",
+        "amount": 682.35
+      },
+      "totalFat": {
+        "unit": "g",
+        "amount": 25.2
+      },
+      "foodAmount": {
+        "unit": "g",
+        "amount": 450
+      },
+      "servingInfo": "1to2people",
+      "carbohydrate": {
+        "unit": "g",
+        "amount": 69
+      }
     },
-    {
-      "itemid": "10543236",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77832",
-      "item_ordertype": "0,1",
-      "item_packingcharges": "0",
-      "itemallowaddon": "0",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [],
-      "is_recommend": "0",
-      "itemname": "PBM - Chicken 65 Boneless Biryani - Web",
-      "item_attributeid": "1",
-      "itemdescription": "Mysore style biryani is truly a delight to your taste buds with rich flavours and yet subtle. It's time to experience this wonderful curation handcrafted by our biryani heroes with premium ingredients like cold pressed oil, 18 months aged rice, organic vegetables, freshly pound secret masala and of course the traditional style of cooking.",
-      "minimumpreparationtime": "",
-      "price": "1799.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
+    "cuisine": [
+      "Biriyani",
+      "South Indian"
+    ],
+    "variation_groupname": "",
+    "variation": [
+      
+    ],
+    "addon": [
+      {
+        "addon_group_id": "1141468",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "1"
+      },
+      {
+        "addon_group_id": "1141473",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "4"
+      }
+    ],
+    "is_recommend": "0",
+    "itemname": "Epic Bangalore Biryani",
+    "item_attributeid": "2",
+    "itemdescription": "Experience the bangalore style Biryani which was cherished by the old bangaloreans from the old times! Dum cooked to perfection, a time honored tradition, handcrafted by our biryani heroes ensuring each fluffy grain of rice is infused with aromatic spices. We at local heros make this biryani tastier and healthier by using finest premium ingredients like cold-pressed groundnut oil, 18-month aged Seeraga Samba rice, organic vegetables, and freshly pounded masala.",
+    "minimumpreparationtime": "25",
+    "price": "180.00",
+    "active": "1",
+    "item_image_url": "https://online-logo.s3.ap-southeast-1.amazonaws.com/homewebsite/326219/thumb_1719555122_2024_06_28_11_41_41_bangalore_bbb.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWOP3TNH4KGK54OGP%2F20240924%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240924T055417Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=f7461bcaa00fc11460cdade5ff61796c0c7f2963e572f75922144507bd3bc210",
+    "item_tax": "",
+    "tax_inclusive": false,
+    "gst_type": "goods"
+  },
+  {
+    "itemid": "141004065",
+    "itemallowvariation": "0",
+    "itemrank": "1",
+    "item_categoryid": "5363368",
+    "item_ordertype": "1,2,3",
+    "item_packingcharges": "5",
+    "itemallowaddon": "0",
+    "itemaddonbasedon": "0",
+    "item_favorite": "0",
+    "ignore_taxes": "0",
+    "ignore_discounts": "0",
+    "in_stock": "2",
+    "cuisine": [
+      "Indian"
+    ],
+    "variation_groupname": "",
+    "variation": [
+      
+    ],
+    "addon": [
+      
+    ],
+    "is_recommend": "0",
+    "itemname": "250 Gms - 8 Pieces",
+    "item_attributeid": "2",
+    "itemdescription": "Deep-fried to juicy perfection! Our Indian style kabab is always an evergreen choice of kabab. Enjoy them as an appetiser,or main course with rice or greens or pair them with drinks or your favourite Biriyaani - these versatile Kababs are a delicious addition to any meal.",
+    "minimumpreparationtime": "10",
+    "price": "180.00",
+    "active": "1",
+    "item_image_url": "https://online-logo.s3.ap-southeast-1.amazonaws.com/homewebsite/326219/thumb_2024_05_20_17_59_31_Juicy_Kabab_s_Bijli.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWOP3TNH4KGK54OGP%2F20240924%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240924T055417Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=ec24c9471662eeab42a7d7032165a385cf386888c1fdc235b8b325027e17e4f8",
+    "item_tax": "",
+    "tax_inclusive": false,
+    "gst_type": "goods"
+  },
+  {
+    "itemid": "1274297308",
+    "itemallowvariation": "0",
+    "itemrank": "1",
+    "item_categoryid": "5363366",
+    "item_ordertype": "1,2,3",
+    "item_packingcharges": "15",
+    "itemallowaddon": "1",
+    "itemaddonbasedon": "0",
+    "item_favorite": "0",
+    "ignore_taxes": "0",
+    "ignore_discounts": "0",
+    "in_stock": "2",
+    "cuisine": [
+      
+    ],
+    "variation_groupname": "",
+    "variation": [
+      
+    ],
+    "addon": [
+      {
+        "addon_group_id": "1141468",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "1"
+      },
+      {
+        "addon_group_id": "1141473",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "4"
+      }
+    ],
+    "is_recommend": "0",
+    "itemname": "Anda Biryani",
+    "item_attributeid": "2",
+    "itemdescription": "\"Experience the authentic flavors of the Nawab era with our exquisite Royal Arcot Biryani. Crafted with the finest premium ingredients like cold-pressed groundnut oil, 18-month aged Seeraga Samba rice, organic vegetables, freshly pounded masala and of course traditional style of cooking. our biryani is a culinary masterpiece that will transport you to the heart of the Mughal courts. \"",
+    "minimumpreparationtime": "25",
+    "price": "180.00",
+    "active": "1",
+    "item_image_url": "https://online-logo.s3.ap-southeast-1.amazonaws.com/homewebsite/326219/thumb_1726840269_2024_09_20_19_21_03_WhatsApp_Image_2024_09_20_at_18.14.31.jpeg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWOP3TNH4KGK54OGP%2F20240924%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240924T055417Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=92da09b933d5b63190a8ef69197023419dd81fd1f90445935b639bbd8fa082f8",
+    "item_tax": "",
+    "tax_inclusive": false,
+    "gst_type": "services"
+  },
+  {
+    "itemid": "141004059",
+    "itemallowvariation": "0",
+    "itemrank": "1",
+    "item_categoryid": "5363366",
+    "item_ordertype": "1,2,3",
+    "item_packingcharges": "15",
+    "itemallowaddon": "1",
+    "itemaddonbasedon": "0",
+    "item_favorite": "0",
+    "ignore_taxes": "0",
+    "ignore_discounts": "0",
+    "in_stock": "2",
+    "nutrition": {
+      "fiber": {
+        "unit": "g",
+        "amount": 0.77
+      },
+      "protien": {
+        "unit": "g",
+        "amount": 43.6
+      },
+      "calories": {
+        "unit": "kcal",
+        "amount": 682.35
+      },
+      "totalFat": {
+        "unit": "g",
+        "amount": 25.2
+      },
+      "foodAmount": {
+        "unit": "g",
+        "amount": 450
+      },
+      "servingInfo": "1to2people",
+      "carbohydrate": {
+        "unit": "g",
+        "amount": 69
+      }
     },
-    {
-      "itemid": "10543237",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77832",
-      "item_ordertype": "0,1",
-      "item_packingcharges": "0",
-      "itemallowaddon": "0",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [],
-      "is_recommend": "0",
-      "itemname": "PBM - Hyderabadi Biryani - Web",
-      "item_attributeid": "1",
-      "itemdescription": "Mysore style biryani is truly a delight to your taste buds with rich flavours and yet subtle. It's time to experience this wonderful curation handcrafted by our biryani heroes with premium ingredients like cold pressed oil, 18 months aged rice, organic vegetables, freshly pound secret masala and of course the traditional style of cooking.",
-      "minimumpreparationtime": "",
-      "price": "199.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10543227",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77829",
-      "item_ordertype": "1,2",
-      "item_packingcharges": "0",
-      "itemallowaddon": "0",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [],
-      "is_recommend": "0",
-      "itemname": "Anda Biryani - Web",
-      "item_attributeid": "1",
-      "itemdescription": "This Nizami biryani is made just the way the Hyderabadi Nizam's Khansama would make it for the Royals using Nizami tradition and time-honored methods. We at Local Heros make this biryani tastier and healthier by using finest premium ingredients like cold-pressed groundnut oil, 18-month aged Basmati rice,organic vegetables, and  freshly pounded masala. Each mouthful is a historical and flavorful journey fit for a king.",
-      "minimumpreparationtime": "",
-      "price": "149.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10543228",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77829",
-      "item_ordertype": "0,1",
-      "item_packingcharges": "0",
-      "itemallowaddon": "0",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [],
-      "is_recommend": "0",
-      "itemname": "Aloo 65 Biryani - Web",
-      "item_attributeid": "1",
-      "itemdescription": "Menu - Revised Menu - Revised 100% 10 P14  This unique dish combines the irresistible crunch of Aloo 65 with the aromatic essence of our biryani. Crafted with premium ingredients like cold-pressed oil, 18-month aged rice, organic vegetables, freshly ground secret masala and traditional style of cooking.       \t This unique dish combines the irresistible crunch of Aloo 65 with the aromatic essence of our biryani. Crafted with premium ingredients like cold-pressed oil, 18-month aged rice, organic vegetables, freshly ground secret masala and traditional style of cooking. Turn on screen reader support To enable screen reader support, press \u2318+Option+Z To learn about keyboard shortcuts, press \u2318slashsadam hussain has joined the document.",
-      "minimumpreparationtime": "",
-      "price": "149.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10543229",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77829",
-      "item_ordertype": "1",
-      "item_packingcharges": "0",
-      "itemallowaddon": "0",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [],
-      "is_recommend": "0",
-      "itemname": "Paneer 65 Biryani - Web",
-      "item_attributeid": "1",
-      "itemdescription": "Savour the earthy richness of our Mushroom Biryani. This biryani offers a delightful contrast of tastes and textures. A perfect choice for those seeking a meat-free option without compromising on flavour. Made with premium ingredients like cold-pressed oil, 18 months aged rice, organic vegetables, freshly pounded secret masala and of course the traditional style of cooking.",
-      "minimumpreparationtime": "",
-      "price": "149.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10542636",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77774",
-      "item_ordertype": "1,2,3",
-      "item_packingcharges": "90",
-      "itemallowaddon": "1",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [
-        {
-          "addon_group_id": "11620",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "4"
-        },
-        {
-          "addon_group_id": "11622",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "1"
-        }
-      ],
-      "is_recommend": "0",
-      "itemname": "Classic Mysore - Party Biryani Meal",
-      "item_attributeid": "2",
-      "itemdescription": "No party can be completed without biryani and Kababs! Serves 8 - 10 people Make your party time more delightful with our irresistible range of biryani\u2019s and Kababs. Choose from our Classic,Epic, 65 Boneless or Hyderabadi biryani and we will pack it up with a large box of Kababs. Deal: - Chicken Biryani Rice (3 Kgs cooked rice ) -Chicken Biryani meat ( 30 Pieces ) -Kabab ( 32 Pieces ) -Made to Order",
-      "minimumpreparationtime": "",
-      "price": "1790.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10542637",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77774",
-      "item_ordertype": "1,2,3",
-      "item_packingcharges": "90",
-      "itemallowaddon": "1",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [
-        {
-          "addon_group_id": "11620",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "4"
-        },
-        {
-          "addon_group_id": "11622",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "1"
-        }
-      ],
-      "is_recommend": "0",
-      "itemname": "Epic Bangalore - Party Biryani Meal",
-      "item_attributeid": "2",
-      "itemdescription": "No party can be completed without biryani and Kababs! Serves 8 - 10 people Make your party time more delightful with our irresistible range of biryani\u2019s and Kababs. Choose from our Classic,Epic, 65 Boneless or Hyderabadi biryani and we will pack it up with a large box of Kababs. Deal: - Chicken Biryani Rice (3 Kgs cooked rice ) -Chicken Biryani meat ( 30 Pieces ) -Kabab ( 32 Pieces ) -Made to Order",
-      "minimumpreparationtime": "",
-      "price": "1790.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10542638",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77774",
-      "item_ordertype": "1,2,3",
-      "item_packingcharges": "90",
-      "itemallowaddon": "1",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [
-        {
-          "addon_group_id": "11620",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "4"
-        },
-        {
-          "addon_group_id": "11622",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "1"
-        }
-      ],
-      "is_recommend": "0",
-      "itemname": "65 Boneless - Party Biryani Meal",
-      "item_attributeid": "2",
-      "itemdescription": "No party can be completed without biryani and Kababs! Serves 8 - 10 people Make your party time more delightful with our irresistible range of biryani\u2019s and Kababs. Choose from our Classic,Epic, 65 Boneless or Hyderabadi biryani and we will pack it up with a large box of Kababs. Deal: - Chicken Biryani Rice (3 Kgs cooked rice ) -Chicken Biryani meat ( 30 Pieces ) -Kabab ( 32 Pieces ) -Made to Order",
-      "minimumpreparationtime": "",
-      "price": "1790.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10542645",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77774",
-      "item_ordertype": "1,2,3",
-      "item_packingcharges": "90",
-      "itemallowaddon": "1",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [
-        {
-          "addon_group_id": "11620",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "4"
-        },
-        {
-          "addon_group_id": "11622",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "1"
-        }
-      ],
-      "is_recommend": "0",
-      "itemname": "Hyderabadi - Party Biyani Meal",
-      "item_attributeid": "2",
-      "itemdescription": "No party can be completed without biryani and Kababs! Serves 8 - 10 people Make your party time more delightful with our irresistible range of biryani\u2019s and Kababs. Choose from our Classic,Epic, 65 Boneless or Hyderabadi biryani and we will pack it up with a large box of Kababs. Deal: - Chicken Biryani Rice (3 Kgs cooked rice ) -Chicken Biryani meat ( 30 Pieces ) -Kabab ( 32 Pieces ) -Made to Order",
-      "minimumpreparationtime": "",
-      "price": "1790.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10543230",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77831",
-      "item_ordertype": "0,1,2",
-      "item_packingcharges": "0",
-      "itemallowaddon": "0",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [],
-      "is_recommend": "0",
-      "itemname": "FP - Classic Mysore Biryani - Web",
-      "item_attributeid": "2",
-      "itemdescription": "Mysore style biryani is truly a delight to your taste buds with rich flavours and yet subtle. It's time to experience this wonderful curation handcrafted by our biryani heroes with premium ingredients like cold pressed oil, 18 months aged rice, organic vegetables, freshly pound secret masala and of course the traditional style of cooking.",
-      "minimumpreparationtime": "",
-      "price": "999.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10543231",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77831",
-      "item_ordertype": "0,1,2",
-      "item_packingcharges": "0",
-      "itemallowaddon": "0",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [],
-      "is_recommend": "0",
-      "itemname": "FP - Epic Bangalore Biryani - Web",
-      "item_attributeid": "2",
-      "itemdescription": "Mysore style biryani is truly a delight to your taste buds with rich flavours and yet subtle. It's time to experience this wonderful curation handcrafted by our biryani heroes with premium ingredients like cold pressed oil, 18 months aged rice, organic vegetables, freshly pound secret masala and of course the traditional style of cooking.",
-      "minimumpreparationtime": "",
-      "price": "999.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10543233",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77831",
-      "item_ordertype": "0,1,2",
-      "item_packingcharges": "0",
-      "itemallowaddon": "0",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [],
-      "is_recommend": "0",
-      "itemname": "FP - Hyderabadi Biryani - Web",
-      "item_attributeid": "2",
-      "itemdescription": "Mysore style biryani is truly a delight to your taste buds with rich flavours and yet subtle. It's time to experience this wonderful curation handcrafted by our biryani heroes with premium ingredients like cold pressed oil, 18 months aged rice, organic vegetables, freshly pound secret masala and of course the traditional style of cooking.",
-      "minimumpreparationtime": "",
-      "price": "999.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10543232",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77831",
-      "item_ordertype": "0,1,2",
-      "item_packingcharges": "0",
-      "itemallowaddon": "0",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [],
-      "is_recommend": "0",
-      "itemname": "FP - Chicken 65 Boneless Biryani - Web",
-      "item_attributeid": "2",
-      "itemdescription": "Mysore style biryani is truly a delight to your taste buds with rich flavours and yet subtle. It's time to experience this wonderful curation handcrafted by our biryani heroes with premium ingredients like cold pressed oil, 18 months aged rice, organic vegetables, freshly pound secret masala and of course the traditional style of cooking.",
-      "minimumpreparationtime": "",
-      "price": "999.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10542635",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77773",
-      "item_ordertype": "1,2,3",
-      "item_packingcharges": "60",
-      "itemallowaddon": "1",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [
-        {
-          "addon_group_id": "11621",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "1"
-        },
-        {
-          "addon_group_id": "11620",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "4"
-        }
-      ],
-      "is_recommend": "0",
-      "itemname": "65 Boneless - Family Biryani Meal",
-      "item_attributeid": "2",
-      "itemdescription": "A family that eats together stays together! Serves 4 - 5 People Enjoy your family time with our irresistible range of biryani and kababs. Choose from our Classic,Epic, 65 Boneless or Hyderabadi biryani and we will pack it up with a box of Kababs. Deal :-  - Chicken Biryani rice ( 1.5 Kgs Cooked rice ) - Chicken Biryani meat ( 15 Pieces ) -Chicken Kabab ( 15 Pieces ) -Made to Order",
-      "minimumpreparationtime": "",
-      "price": "990.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10542644",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77773",
-      "item_ordertype": "1,2,3",
-      "item_packingcharges": "60",
-      "itemallowaddon": "1",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [
-        {
-          "addon_group_id": "11621",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "1"
-        },
-        {
-          "addon_group_id": "11620",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "4"
-        }
-      ],
-      "is_recommend": "0",
-      "itemname": "Hyderabadi Biryani Family Pack",
-      "item_attributeid": "2",
-      "itemdescription": "A family that eats together stays together! Serves 4 - 5 People Enjoy your family time with our irresistible range of biryani and kababs. Choose from our Classic,Epic, 65 Boneless or Hyderabadi biryani and we will pack it up with a box of Kababs. Deal :-  - Chicken Biryani rice ( 1.5 Kgs Cooked rice ) - Chicken Biryani meat ( 15 Pieces ) -Chicken Kabab ( 15 Pieces ) -Made to Order",
-      "minimumpreparationtime": "",
-      "price": "990.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "goods"
-    },
-    {
-      "itemid": "10542633",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77773",
-      "item_ordertype": "1,2,3",
-      "item_packingcharges": "60",
-      "itemallowaddon": "1",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [
-        {
-          "addon_group_id": "11621",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "1"
-        },
-        {
-          "addon_group_id": "11620",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "4"
-        }
-      ],
-      "is_recommend": "0",
-      "itemname": "Classic Mysore - Family Biryani Meal",
-      "item_attributeid": "2",
-      "itemdescription": "A family that eats together stays together! Serves 4 - 5 People Enjoy your family time with our irresistible range of biryani and kababs. Choose from our Classic,Epic, 65 Boneless or Hyderabadi biryani and we will pack it up with a box of Kababs. Deal :-  - Chicken Biryani rice ( 1.5 Kgs Cooked rice ) - Chicken Biryani meat ( 15 Pieces ) -Chicken Kabab ( 15 Pieces ) -Made to Order",
-      "minimumpreparationtime": "",
-      "price": "990.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10542634",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77773",
-      "item_ordertype": "1,2,3",
-      "item_packingcharges": "60",
-      "itemallowaddon": "1",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [
-        {
-          "addon_group_id": "11621",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "1"
-        },
-        {
-          "addon_group_id": "11620",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "4"
-        }
-      ],
-      "is_recommend": "0",
-      "itemname": "Epic Bangalore - Family Biryani Meal",
-      "item_attributeid": "2",
-      "itemdescription": "A family that eats together stays together! Serves 4 - 5 People Enjoy your family time with our irresistible range of biryani and kababs. Choose from our Classic,Epic, 65 Boneless or Hyderabadi biryani and we will pack it up with a box of Kababs. Deal :-  - Chicken Biryani rice ( 1.5 Kgs Cooked rice ) - Chicken Biryani meat ( 15 Pieces ) -Chicken Kabab ( 15 Pieces ) -Made to Order",
-      "minimumpreparationtime": "",
-      "price": "990.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10542632",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77772",
-      "item_ordertype": "1,2,3",
-      "item_packingcharges": "15",
-      "itemallowaddon": "0",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [],
-      "is_recommend": "0",
-      "itemname": "1 Kg - 32 Piece",
-      "item_attributeid": "2",
-      "itemdescription": "Deep-fried to juicy perfection! Our Indian style kabab is always an evergreen choice of kabab. Enjoy them as an appetiser,or main course with rice or greens or pair them with drinks or your favourite Biriyaani - these versatile Kababs are a delicious addition to any meal.",
-      "minimumpreparationtime": "",
-      "price": "649.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10543241",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77833",
-      "item_ordertype": "0,1",
-      "item_packingcharges": "0",
-      "itemallowaddon": "0",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [],
-      "is_recommend": "0",
-      "itemname": "Double Dhamaka 32 Pieces - Web",
-      "item_attributeid": "2",
-      "itemdescription": "",
-      "minimumpreparationtime": "",
-      "price": "599.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10542631",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77772",
-      "item_ordertype": "1,2,3",
-      "item_packingcharges": "10",
-      "itemallowaddon": "0",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [],
-      "is_recommend": "0",
-      "itemname": "500 Gms - 16 Piece",
-      "item_attributeid": "2",
-      "itemdescription": "Deep-fried to juicy perfection! Our Indian style kabab is always an evergreen choice of kabab. Enjoy them as an appetiser,or main course with rice or greens or pair them with drinks or",
-      "minimumpreparationtime": "",
-      "price": "349.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10543240",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77833",
-      "item_ordertype": "0,1",
-      "item_packingcharges": "0",
-      "itemallowaddon": "0",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [],
-      "is_recommend": "0",
-      "itemname": "Dhamaka 16 Pieces - Web",
-      "item_attributeid": "2",
-      "itemdescription": "",
-      "minimumpreparationtime": "",
-      "price": "325.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10542628",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77771",
-      "item_ordertype": "1,2,3",
-      "item_packingcharges": "15",
-      "itemallowaddon": "1",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [
-        {
-          "addon_group_id": "11619",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "1"
-        },
-        {
-          "addon_group_id": "11621",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "1"
-        },
-        {
-          "addon_group_id": "11620",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "4"
-        }
-      ],
-      "is_recommend": "0",
-      "itemname": "Classic Mysore Biryani + Kabab",
-      "item_attributeid": "2",
-      "itemdescription": "Ditch the decision fatigue - we've got your complete feast covered!   Choose your favourite Biriyaani, from our range of Cassic Mysore, Epic Bangalore, Hyderabadi or Chicken 65 Biryani and we will make it even more exciting by adding some Kababs to the box.",
-      "minimumpreparationtime": "",
-      "price": "299.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10542643",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77771",
-      "item_ordertype": "1,2,3",
-      "item_packingcharges": "15",
-      "itemallowaddon": "1",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [
-        {
-          "addon_group_id": "11619",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "1"
-        },
-        {
-          "addon_group_id": "11621",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "1"
-        },
-        {
-          "addon_group_id": "11620",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "4"
-        }
-      ],
-      "is_recommend": "0",
-      "itemname": "Hyderabadi Biryani + Kabab",
-      "item_attributeid": "2",
-      "itemdescription": "Ditch the decision fatigue - we've got your complete feast covered!   Choose your favourite Biriyaani, from our range of Cassic Mysore, Epic Bangalore, Hyderabadi or Chicken 65 Biryani and we will make it even more exciting by adding some Kababs to the box.",
-      "minimumpreparationtime": "",
-      "price": "299.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "goods"
-    },
-    {
-      "itemid": "10542641",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77771",
-      "item_ordertype": "1,2,3",
-      "item_packingcharges": "15",
-      "itemallowaddon": "1",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [
-        {
-          "addon_group_id": "11619",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "1"
-        },
-        {
-          "addon_group_id": "11621",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "1"
-        },
-        {
-          "addon_group_id": "11620",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "4"
-        }
-      ],
-      "is_recommend": "0",
-      "itemname": "Epic Bangalore Biryani+ Kabab",
-      "item_attributeid": "2",
-      "itemdescription": "Ditch the decision fatigue - we've got your complete feast covered!   Choose your favourite Biriyaani, from our range of Cassic Mysore, Epic Bangalore, Hyderabadi or Chicken 65 Biryani and we will make it even more exciting by adding some Kababs to the box.",
-      "minimumpreparationtime": "",
-      "price": "299.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10542629",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77771",
-      "item_ordertype": "1,2,3",
-      "item_packingcharges": "15",
-      "itemallowaddon": "1",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [
-        {
-          "addon_group_id": "11619",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "1"
-        },
-        {
-          "addon_group_id": "11621",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "1"
-        },
-        {
-          "addon_group_id": "11620",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "4"
-        }
-      ],
-      "is_recommend": "0",
-      "itemname": "65 Boneless Biryani + Kabab",
-      "item_attributeid": "2",
-      "itemdescription": "Ditch the decision fatigue - we've got your complete feast covered!   Choose your favourite Biriyaani, from our range of Cassic Mysore, Epic Bangalore, Hyderabadi or Chicken 65 Biryani and we will make it even more exciting by adding some Kababs to the box.",
-      "minimumpreparationtime": "",
-      "price": "299.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10542642",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77770",
-      "item_ordertype": "1,2,3",
-      "item_packingcharges": "15",
-      "itemallowaddon": "1",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [
-        {
-          "addon_group_id": "11619",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "1"
-        },
-        {
-          "addon_group_id": "11621",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "1"
-        },
-        {
-          "addon_group_id": "11622",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "1"
-        }
-      ],
-      "is_recommend": "0",
-      "itemname": "Hyderabadi Biryani",
-      "item_attributeid": "2",
-      "itemdescription": "Hailing from the opulent kitchens of the Nizams, this aromatic rice dish is a harmonious blend of fragrant basmati rice, cold-pressed oil, organic vegetables, freshly pound secret masala and of course the traditional style of cooking.  Prepared with meticulous care by our Biryani Heros and slow-cooked to perfection, each mouthful transports you to the grandeur of the bygone era.",
-      "minimumpreparationtime": "",
-      "price": "199.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "goods"
-    },
-    {
-      "itemid": "10542640",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77770",
-      "item_ordertype": "1,2,3",
-      "item_packingcharges": "15",
-      "itemallowaddon": "1",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [
-        {
-          "addon_group_id": "11619",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "1"
-        },
-        {
-          "addon_group_id": "11620",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "4"
-        }
-      ],
-      "is_recommend": "0",
-      "itemname": "65 Boneless Biryani",
-      "item_attributeid": "2",
-      "itemdescription": "Our Chicken 65 Boneless Biryani is a modern twist on the classic, perfect for busy lifestyles!  This dum-cooked biryani features juicy, boneless \"special chicken\" nestled amidst fluffy seeraga samba rice with fragrant spices that will excite your taste buds. It's time to experience this wonderful curation handcrafted by our biryani heros with premium ingredients like cold pressed oil, organic vegetables, freshly pound secret masala and of course the traditional style of cooking.",
-      "minimumpreparationtime": "",
-      "price": "199.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10542639",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77770",
-      "item_ordertype": "1,2,3",
-      "item_packingcharges": "15",
-      "itemallowaddon": "1",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [
-        {
-          "addon_group_id": "11619",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "1"
-        },
-        {
-          "addon_group_id": "11620",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "4"
-        }
-      ],
-      "is_recommend": "0",
-      "itemname": "Epic Bangalore Biryani",
-      "item_attributeid": "2",
-      "itemdescription": "Experience the bangalore style Biryani which was cherished by the old bangaloreans from the old times! Dum cooked to perfection, a time honored tradition, handcrafted  by our biryani heroes ensuring each fluffy grain of rice is infused with aromatic spices. We at local heros make this biryani tastier and healthier by using finest premium ingredients like cold-pressed groundnut oil, 18-month aged Seeraga Samba rice, organic vegetables, and  freshly pounded masala.",
-      "minimumpreparationtime": "",
-      "price": "199.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10542627",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77770",
-      "item_ordertype": "1,2,3",
-      "item_packingcharges": "15",
-      "itemallowaddon": "1",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [
-        {
-          "addon_group_id": "11619",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "1"
-        },
-        {
-          "addon_group_id": "11620",
-          "addon_item_selection_min": "0",
-          "addon_item_selection_max": "4"
-        }
-      ],
-      "is_recommend": "0",
-      "itemname": "Classic Mysore Biryani",
-      "item_attributeid": "2",
-      "itemdescription": "Our Classic Mysore biryani is an all time favourite across all age groups and classes! Mysore style biryani is truly a delight to your taste buds with rich flavours and yet subtle. It's time to experience this wonderful curation handcrafted by our biryani heroes with premium ingredients like cold pressed oil, 18 months aged rice, organic vegetables, freshly pound secret masala and of course the traditional style of cooking.",
-      "minimumpreparationtime": "",
-      "price": "199.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10543225",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77829",
-      "item_ordertype": "1",
-      "item_packingcharges": "0",
-      "itemallowaddon": "0",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [],
-      "is_recommend": "0",
-      "itemname": "Hyderabadi Biryani-Web",
-      "item_attributeid": "2",
-      "itemdescription": "Menu - Revised Menu - Revised 100% 10 P14  This unique dish combines the irresistible crunch of Aloo 65 with the aromatic essence of our biryani. Crafted with premium ingredients like cold-pressed oil, 18-month aged rice, organic vegetables, freshly ground secret masala and traditional style of cooking.       \t This unique dish combines the irresistible crunch of Aloo 65 with the aromatic essence of our biryani. Crafted with premium ingredients like cold-pressed oil, 18-month aged rice, organic vegetables, freshly ground secret masala and traditional style of cooking. Turn on screen reader support To enable screen reader support, press \u2318+Option+Z To learn about keyboard shortcuts, press \u2318slashsadam hussain has joined the document.",
-      "minimumpreparationtime": "",
-      "price": "179.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10543224",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77829",
-      "item_ordertype": "0,1",
-      "item_packingcharges": "0",
-      "itemallowaddon": "0",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [],
-      "is_recommend": "0",
-      "itemname": "Chicken 65 Boneless Biryani - Web",
-      "item_attributeid": "2",
-      "itemdescription": "This dum-cooked biryani features juicy, boneless \"special chicken\" nestled amidst fluffy Seeraga Samba rice with fragrant spices that will excite your taste buds. It's time to experience this wonderful curation handcrafted by our biryani heros with premium ingredients like cold pressed oil, 18 months aged rice, organic vegetables, freshly pound secret masala and of course the traditional style of cooking.",
-      "minimumpreparationtime": "",
-      "price": "179.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10543223",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77829",
-      "item_ordertype": "0,1",
-      "item_packingcharges": "0",
-      "itemallowaddon": "0",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [],
-      "is_recommend": "0",
-      "itemname": "Epic Bangalore Biryani - Web",
-      "item_attributeid": "2",
-      "itemdescription": "Dum cooked to perfection, a time honored tradition, handcrafted  by our biryani heroes ensuring each fluffy grain of rice is infused with aromatic spices. We at local heros make this biryani tastier and healthier by using finest premium ingredients like cold-pressed groundnut oil, 18-month aged Seeraga Samba rice, organic vegetables, and  freshly pounded masala.",
-      "minimumpreparationtime": "",
-      "price": "179.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10543222",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77829",
-      "item_ordertype": "1",
-      "item_packingcharges": "0",
-      "itemallowaddon": "0",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [],
-      "is_recommend": "0",
-      "itemname": "Classic Mysore Biryani - Web",
-      "item_attributeid": "2",
-      "itemdescription": "Mysore style biryani is truly a delight to your taste buds with rich flavours and yet subtle. It's time to experience this wonderful curation handcrafted by our biryani heroes with premium ingredients like cold pressed oil, 18 months aged rice, organic vegetables, freshly pound secret masala and of course the traditional style of cooking.",
-      "minimumpreparationtime": "",
-      "price": "179.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10542630",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77772",
-      "item_ordertype": "1,2,3",
-      "item_packingcharges": "5",
-      "itemallowaddon": "0",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [],
-      "is_recommend": "0",
-      "itemname": "250 Gms - 8 Pieces",
-      "item_attributeid": "2",
-      "itemdescription": "Deep-fried to juicy perfection! Our Indian style kabab is always an evergreen choice of kabab. Enjoy them as an appetiser,or main course with rice or greens or pair them with drinks or your favourite Biriyaani - these versatile Kababs are a delicious addition to any meal.",
-      "minimumpreparationtime": "",
-      "price": "179.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10543239",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77833",
-      "item_ordertype": "0,1",
-      "item_packingcharges": "0",
-      "itemallowaddon": "0",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [],
-      "is_recommend": "0",
-      "itemname": "Pataka 8 Pieces - Web",
-      "item_attributeid": "2",
-      "itemdescription": "",
-      "minimumpreparationtime": "",
-      "price": "175.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10543226",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77829",
-      "item_ordertype": "0,1",
-      "item_packingcharges": "0",
-      "itemallowaddon": "0",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [],
-      "is_recommend": "0",
-      "itemname": "Mushroom Biryani",
-      "item_attributeid": "2",
-      "itemdescription": "Savour the earthy richness of our Mushroom Biryani. This biryani offers a delightful contrast of tastes and textures. A perfect choice for those seeking a meat-free option without compromising on flavour. Made with premium ingredients like cold-pressed oil, 18 months aged rice, organic vegetables, freshly pounded secret masala and of course the traditional style of cooking.",
-      "minimumpreparationtime": "",
-      "price": "149.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    },
-    {
-      "itemid": "10543238",
-      "itemallowvariation": "0",
-      "itemrank": "1",
-      "item_categoryid": "77833",
-      "item_ordertype": "0,1",
-      "item_packingcharges": "0",
-      "itemallowaddon": "0",
-      "itemaddonbasedon": "0",
-      "item_favorite": "0",
-      "ignore_taxes": "0",
-      "ignore_discounts": "0",
-      "in_stock": "2",
-      "cuisine": [],
-      "variation_groupname": "",
-      "variation": [],
-      "addon": [],
-      "is_recommend": "0",
-      "itemname": "Bijli 4 Pieces - Web",
-      "item_attributeid": "2",
-      "itemdescription": "",
-      "minimumpreparationtime": "",
-      "price": "99.00",
-      "active": "1",
-      "item_image_url": "",
-      "item_tax": "2532,2533",
-      "tax_inclusive": false,
-      "gst_type": "services"
-    }
-  ]
+    "cuisine": [
+      "Indian",
+      "Biriyani"
+    ],
+    "variation_groupname": "",
+    "variation": [
+      
+    ],
+    "addon": [
+      {
+        "addon_group_id": "1141468",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "1"
+      },
+      {
+        "addon_group_id": "1141473",
+        "addon_item_selection_min": "0",
+        "addon_item_selection_max": "4"
+      }
+    ],
+    "is_recommend": "0",
+    "itemname": "Classic Mysore Biryani",
+    "item_attributeid": "2",
+    "itemdescription": "Our Classic Mysore biryani is an all time favourite across all age groups and classes! Mysore style biryani is truly a delight to your taste buds with rich flavours and yet subtle. It's time to experience this wonderful curation handcrafted by our biryani heroes with premium ingredients like cold pressed oil, 18 months aged rice, organic vegetables, freshly pound secret masala and of course the traditional style of cooking.",
+    "minimumpreparationtime": "20",
+    "price": "180.00",
+    "active": "1",
+    "item_image_url": "https://online-logo.s3.ap-southeast-1.amazonaws.com/homewebsite/326219/thumb_1719551429_2024_06_28_10_40_08_image_1_.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWOP3TNH4KGK54OGP%2F20240924%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240924T055417Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=4f96f73c91fcacd3988d3ed5842ca1138c0bdd3194bbb05ec82faa7885a95681",
+    "item_tax": "",
+    "tax_inclusive": false,
+    "gst_type": "goods"
+  },
+  {
+    "itemid": "1274490150",
+    "itemallowvariation": "0",
+    "itemrank": "1",
+    "item_categoryid": "5363368",
+    "item_ordertype": "1,2,3",
+    "item_packingcharges": "0",
+    "itemallowaddon": "0",
+    "itemaddonbasedon": "0",
+    "item_favorite": "0",
+    "ignore_taxes": "0",
+    "ignore_discounts": "0",
+    "in_stock": "2",
+    "cuisine": [
+      
+    ],
+    "variation_groupname": "",
+    "variation": [
+      
+    ],
+    "addon": [
+      
+    ],
+    "is_recommend": "0",
+    "itemname": "100 Gms- 4 Piece",
+    "item_attributeid": "2",
+    "itemdescription": "Deep-fried to juicy perfection! Our Indian style kabab is always an evergreen choice of kabab. Enjoy them as an appetiser,or main course with rice or greens or pair them with drinks or your favorite Biriyaani - these versatile Kababs are a delicious addition to any meal.",
+    "minimumpreparationtime": "",
+    "price": "99.00",
+    "active": "1",
+    "item_image_url": "",
+    "item_tax": "",
+    "tax_inclusive": false,
+    "gst_type": "services"
+  }
+]

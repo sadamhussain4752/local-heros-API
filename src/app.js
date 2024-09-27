@@ -168,10 +168,10 @@ app.post("/local-heros-submit-form", (req, res) => {
   const mailOptions = {
     from: `${subjects} <noreply@localheros.in>`,
     to: [
-      // "info@imsolutions.mobi",
-      // "shashi@localheros.in",
+       "info@imsolutions.mobi",
+       "shashi@localheros.in",
       // "sadamdon4752@gmail.com"
-     "sadam@imsolutions.mobi"
+     //"sadam@imsolutions.mobi"
     ],
     subject: subjects,
     html: emailContent,
@@ -202,7 +202,7 @@ app.post("/local-heros-submit-form", (req, res) => {
 
 // Start listening on the defined port
 app.listen(port, async () => {
-  console.log(`Listening for events on http://localhost:${port}`);
+  console.log(`Server is running on port ${port}`);
 
   // // Use ngrok to expose the local server publicly
   // const url = await ngrok.connect(port);
