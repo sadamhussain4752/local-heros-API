@@ -12,7 +12,9 @@ const AddressSchema = new mongoose.Schema({
   email: { type: String, },
   lat: { type: String, required: true },
   lng:  { type: String, required: true },
-  typeAddress: { type: String } // Changed field name to camelCase
+  typeAddress: { type: String }, // Changed field name to camelCase
+  deliveryCharge:{ type: Number }
+
 });
 
 const Address = mongoose.model('devAddress', AddressSchema);

@@ -28,6 +28,67 @@ const orderStatuses = [
   "Confirmed",
   "Out for Delivery",
 ];
+
+const onMessageSend = (status, message) => {
+  let result;
+
+  switch (status) {
+    case "Pending":
+    case "Refunded":
+    case "Returned":
+      result = {
+        Template_ID: "1607100000000308629",
+        Template_Header: "LHEROS",
+        Template_Content: `Your order is currently pending confirmation. Rest assured, we're processing it as quickly as possible. Estimated Waiting Time: ${message +" "+ status} Thank you for your patience -LOCAL HEROS`,
+      };
+      break;
+
+    case "Processing":
+    case "Cancelled":
+    case "On Hold":
+    case "Confirmed":
+    case "Out for Delivery":
+    case "Failed":
+      result = {
+        Template_ID: "1607100000000308626",
+        Template_Header: "LHEROS",
+        Template_Content: `Your order is confirmed. Special Instructions: ${message +" "+ status} -LOCAL HEROS`,
+      };
+      break;
+
+    case "Shipped":
+    case "Delivered":
+    case "Preparing":
+    case "Order Placed":
+      result = {
+        Template_ID: "1607100000000308628",
+        Template_Header: "LHEROS",
+        Template_Content: `Congratulations! Your order is confirmed. Estimated Delivery Time: ${message +" "+ status} Thank you for choosing Zomato! -LOCAL HEROS`,
+      };
+      break;
+
+    case "Completed":
+      result = {
+        Template_ID: "1607100000000308629",
+        Template_Header: "LHEROS",
+        Template_Content: `Congratulations! Your order is confirmed. Estimated Delivery Time: ${message +" "+ status} Thank you for choosing Swiggy! -LOCAL HEROS`,
+      };
+      break;
+
+    default:
+      result = {
+        Template_ID: "Unknown",
+        Template_Header: "LHEROS",
+        Template_Content: `We are unable to process your request at this time. Please contact support for assistance.`,
+      };
+      break;
+  }
+  console.log(result,status, message);
+  
+  return result;
+};
+
+
 const eventEmitter = new EventEmitter();
 
 // Define the FCM server key
@@ -36,24 +97,24 @@ const serverKey =
 
 // Define the FCM endpoint
 const fcmEndpoint = "https://fcm.googleapis.com/fcm/send";
-
 const accountSid = "AC7293676e0655bebc9648970017499691";
 const authToken = "fca7569062b1ad9069c81c1714e98383";
 const client = new twilio(accountSid, authToken);
 // Function to send SMS
-async function sendVerificationSMS(phoneNumber, msg) {
+async function sendVerificationSMS(phoneNumber, msg,id) {
   const apiKey = "07a81cfd6463953ac8e5f3a9d43c1985";
   const sender = "LHEROS";
-  const templateId = "1607100000000307112";
 
   const smsData = {
     key: apiKey,
     route: 2,
     sender: sender,
     number: phoneNumber,
-    sms: `Congratulations! Your order is confirmed. Estimated Delivery Time: ${msg} Thank you for choosing Swiggy! -LOCAL HEROS`,
-    templateid: templateId,
+    sms: id.Template_Content,
+    templateid: id.Template_ID,
   };
+  console.log(smsData);
+  
 
   try {
     const response = await axios.get("http://site.ping4sms.com/api/smsapi", {
@@ -87,20 +148,12 @@ function sendMessage(user) {
   console.log(`Message sent to ${user.firstname} ${user.lastname}`);
 }
 
-// Function to check FCM token responsiveness
-function checkFCMToken(user) {
-  // Assume FCM token check logic here
-  // For simplicity, let's assume it always returns true
-  return true;
-}
 
 const createOrderAPI = async (order_items) => {
   try {
     const address = await Address.findById(order_items.addressId);
     const userIdName = await User.findById(order_items.userId);
-    console.log("====================================");
-    console.log(order_items, "order_items");
-    console.log("====================================");
+   
     const productPromises = order_items.quantity.map(async (productObj) => {
       const product = await Product.findById(productObj.productId);
 
@@ -252,9 +305,7 @@ const createOrderAPI = async (order_items) => {
         device_type: "Web",
       },
     });
-    console.log("====================================");
-    console.log(datas, "datas");
-    console.log("====================================");
+   
     const config = {
       method: "post",
       maxBodyLength: Infinity,
@@ -603,7 +654,15 @@ exports.updateOrderById = async (req, res) => {
       }
 
       // Send SMS
-      await sendVerificationSMS("9629283625", orderId);
+      console.log(status,messageBody,existingOrder);
+      
+      let messageId =  onMessageSend(status,messageBody)
+      console.log(messageId,"messageId");
+      
+      const address = await Address.findById(existingOrder.addressId);
+       console.log(address);
+       
+      await sendVerificationSMS("9629283625", orderId,messageId);
 
       // Send WhatsApp message
       // await sendWhatsApp("919629283625", messageBody);

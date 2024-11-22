@@ -20,15 +20,14 @@ exports.createAddress = async (req, res) => {
     } = req.body;
 
     // Coordinates of Bangalore city center
-    const bangaloreLat = 12.9716;
-    const bangaloreLng = 77.5946;
+    const bangaloreLat = 12.9433824;
+    const bangaloreLng = 77.6207359;
 
     // Google Maps API URL with your key
     const directionsUrl = `https://maps.googleapis.com/maps/api/directions/json?key=AIzaSyBoMO9HVyopxwZ5XzMiF1Xs7DVy8SU7NqY&origin=${lat},${lng}&destination=${bangaloreLat},${bangaloreLng}`;
-    
+
     // Make a request to the Google Maps Directions API
     const response = await axios.get(directionsUrl);
-
 
     // Check if the response contains valid data
     if (response.data && response.data.routes.length > 0) {
@@ -37,14 +36,23 @@ exports.createAddress = async (req, res) => {
       const distance = route.legs[0].distance.value / 1000;
 
       // Assuming the service area is within a 50 km radius of Bangalore
-      if (distance > 50) {
-        return res
-          .status(400)
-          .json({
-            success: false,
-            message: "Currently, we do not provide services in this location",
-          });
+      console.log(distance,"distance");
+
+      if (distance > 20) {
+        return res.status(400).json({
+          success: false,
+          message: "Sorry were not serving in your area",
+        });
       }
+
+      let deliveryCharge = 0;
+
+      // Add a delivery charge for distances greater than 7 km
+      if (distance > 7) {
+        deliveryCharge = 100; // Delivery charge in INR
+        
+      }
+
 
       // Proceed with address creation if within Bangalore
       const newAddress = await Address.create({
@@ -60,22 +68,29 @@ exports.createAddress = async (req, res) => {
         typeAddress,
         lat,
         lng,
+        deliveryCharge, // Store the delivery charge if applicable
       });
 
-      res.status(200).json({ success: true, address: newAddress });
+      res.status(200).json({
+        success: true,
+        address: newAddress,
+        message:
+          deliveryCharge > 0
+            ? `Address added successfully. Delivery charge: ₹${deliveryCharge}`
+            : "Address added successfully with free delivery.",
+      });
     } else {
-      res
-        .status(400)
-        .json({
-          success: false,
-          message: "Currently, we do not provide services in this location",
-        });
+      res.status(400).json({
+        success: false,
+        message: "Currently, we do not provide services in this location",
+      });
     }
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, error: "Server error" });
   }
 };
+
 
 // Get all Address
 exports.getAllAddress = async (req, res) => {
