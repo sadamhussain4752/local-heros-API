@@ -101,6 +101,33 @@ const accountSid = "AC7293676e0655bebc9648970017499691";
 const authToken = "fca7569062b1ad9069c81c1714e98383";
 const client = new twilio(accountSid, authToken);
 // Function to send SMS
+
+
+const sendWhatsAppMessage = async (phoneNumber,verificationCode,Ordervalues) => {
+  try {
+      // Step 1: Call the OPT-IN API
+      const optInUrl = `https://media.smsgupshup.com/GatewayAPI/rest?method=OPT_IN&format=json&userid=2000247171&password=9fBqPu7%23&phone_number=${phoneNumber}&v=1.1&auth_scheme=plain&channel=WHATSAPP`;
+      const optInResponse = await axios.get(optInUrl);
+
+      if (optInResponse.data.response.status === 'success') {
+          console.log('Opt-In successful:', optInResponse.data.response.details);
+
+          // Step 2: Call the message API
+          const sendMessageUrl = `https://media.smsgupshup.com/GatewayAPI/rest?userid=2000247171&password=9fBqPu7%23&send_to=${phoneNumber}&v=1.1&format=json&msg_type=TEXT&method=SENDMESSAGE&msg=Hi+%0A%0AThank+you+for+your+order.+Your+order+number+is+${verificationCode._id?.toString().slice(0, 8)  +" "+ Ordervalues}.%0A%0AEnjoy+your+Biryani&isTemplate=true&header=Order+confirmed`;
+          const sendMessageResponse = await axios.get(sendMessageUrl);
+
+          if (sendMessageResponse.data.response.status === 'success') {
+              console.log('Message sent successfully:', sendMessageResponse.data);
+          } else {
+              console.error('Failed to send message:', sendMessageResponse.data.response.details);
+          }
+      } else {
+          console.error('Opt-In failed:', optInResponse.data.response.details);
+      }
+  } catch (error) {
+      console.error('Error occurred:', error.message);
+  }
+};
 async function sendVerificationSMS(phoneNumber, msg,id) {
   const apiKey = "07a81cfd6463953ac8e5f3a9d43c1985";
   const sender = "LHEROS";
@@ -318,6 +345,8 @@ const createOrderAPI = async (order_items) => {
 
     const response = await axios.request(config);
     console.log(JSON.stringify(response.data));
+    sendWhatsAppMessage(address.phone,order_items)
+
     return JSON.stringify(response.data);
   } catch (error) {
     return "Error creating order:", error;
@@ -662,8 +691,8 @@ exports.updateOrderById = async (req, res) => {
       const address = await Address.findById(existingOrder.addressId);
        console.log(address);
        
-      await sendVerificationSMS("9629283625", orderId,messageId);
-
+      await sendVerificationSMS(address.phone, orderId,messageId);
+      sendWhatsAppMessage(address.phone,existingOrder,status)
       // Send WhatsApp message
       // await sendWhatsApp("919629283625", messageBody);
     }

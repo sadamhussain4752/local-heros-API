@@ -78,6 +78,32 @@ const updateAdmin = async (adminId, updateData) => {
   }
 };
 
+const sendWhatsAppMessage = async (phoneNumber,verificationCode) => {
+  try {
+      // Step 1: Call the OPT-IN API
+      const optInUrl = `https://media.smsgupshup.com/GatewayAPI/rest?method=OPT_IN&format=json&userid=2000247171&password=9fBqPu7%23&phone_number=${phoneNumber}&v=1.1&auth_scheme=plain&channel=WHATSAPP`;
+      const optInResponse = await axios.get(optInUrl);
+
+      if (optInResponse.data.response.status === 'success') {
+          console.log('Opt-In successful:', optInResponse.data.response.details);
+
+          // Step 2: Call the message API
+          const sendMessageUrl = `https://media.smsgupshup.com/GatewayAPI/rest?userid=2000247171&password=9fBqPu7%23&send_to=${phoneNumber}&v=1.1&format=json&msg_type=TEXT&method=SENDMESSAGE&msg=${verificationCode}+is+your+verification+code.+For+your+security%2C+do+not+share+this+code.&isTemplate=true&footer=This+code+expires+in+10+minute.`;
+          const sendMessageResponse = await axios.get(sendMessageUrl);
+
+          if (sendMessageResponse.data.response.status === 'success') {
+              console.log('Message sent successfully:', sendMessageResponse.data);
+          } else {
+              console.error('Failed to send message:', sendMessageResponse.data.response.details);
+          }
+      } else {
+          console.error('Opt-In failed:', optInResponse.data.response.details);
+      }
+  } catch (error) {
+      console.error('Error occurred:', error.message);
+  }
+};
+
 async function sendVerificationSMS(phoneNumber) {
   const apiKey = "07a81cfd6463953ac8e5f3a9d43c1985";
   const sender = "LHEROS";
@@ -101,7 +127,7 @@ async function sendVerificationSMS(phoneNumber) {
     // Assuming the response provides some confirmation of successful SMS delivery,
     // you can handle it here based on the structure of the response.
     console.log("SMS Sent Successfully:", response.data);
-
+    sendWhatsAppMessage(phoneNumber,verificationCode)
     return verificationCode;
   } catch (error) {
     console.error("Error sending verification SMS:", error);
